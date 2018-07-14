@@ -1,0 +1,11 @@
+G:\Study\Практика\ExamsHelper\ExamsHelper\bin\Debug\netcoreapp2.0\ExamsHelper.deps.json
+G:\Study\Практика\ExamsHelper\ExamsHelper\bin\Debug\netcoreapp2.0\ExamsHelper.runtimeconfig.json
+G:\Study\Практика\ExamsHelper\ExamsHelper\bin\Debug\netcoreapp2.0\ExamsHelper.runtimeconfig.dev.json
+G:\Study\Практика\ExamsHelper\ExamsHelper\bin\Debug\netcoreapp2.0\ExamsHelper.dll
+G:\Study\Практика\ExamsHelper\ExamsHelper\bin\Debug\netcoreapp2.0\ExamsHelper.pdb
+G:\Study\Практика\ExamsHelper\ExamsHelper\obj\Debug\netcoreapp2.0\ExamsHelper.csprojAssemblyReference.cache
+G:\Study\Практика\ExamsHelper\ExamsHelper\obj\Debug\netcoreapp2.0\ExamsHelper.csproj.CoreCompileInputs.cache
+G:\Study\Практика\ExamsHelper\ExamsHelper\obj\Debug\netcoreapp2.0\ExamsHelper.AssemblyInfoInputs.cache
+G:\Study\Практика\ExamsHelper\ExamsHelper\obj\Debug\netcoreapp2.0\ExamsHelper.AssemblyInfo.cs
+G:\Study\Практика\ExamsHelper\ExamsHelper\obj\Debug\netcoreapp2.0\ExamsHelper.dll
+G:\Study\Практика\ExamsHelper\ExamsHelper\obj\Debug\netcoreapp2.0\ExamsHelper.pdb
