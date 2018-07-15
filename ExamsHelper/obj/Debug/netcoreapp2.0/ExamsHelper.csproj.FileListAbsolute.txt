@@ -9,3 +9,14 @@ G:\Study\Практика\ExamsHelper\ExamsHelper\obj\Debug\netcoreapp2.0\ExamsH
 G:\Study\Практика\ExamsHelper\ExamsHelper\obj\Debug\netcoreapp2.0\ExamsHelper.AssemblyInfo.cs
 G:\Study\Практика\ExamsHelper\ExamsHelper\obj\Debug\netcoreapp2.0\ExamsHelper.dll
 G:\Study\Практика\ExamsHelper\ExamsHelper\obj\Debug\netcoreapp2.0\ExamsHelper.pdb
+F:\RetarCorp Project Exam Helper\ExamsHelper\ExamsHelper\bin\Debug\netcoreapp2.0\ExamsHelper.deps.json
+F:\RetarCorp Project Exam Helper\ExamsHelper\ExamsHelper\bin\Debug\netcoreapp2.0\ExamsHelper.runtimeconfig.json
+F:\RetarCorp Project Exam Helper\ExamsHelper\ExamsHelper\bin\Debug\netcoreapp2.0\ExamsHelper.runtimeconfig.dev.json
+F:\RetarCorp Project Exam Helper\ExamsHelper\ExamsHelper\bin\Debug\netcoreapp2.0\ExamsHelper.dll
+F:\RetarCorp Project Exam Helper\ExamsHelper\ExamsHelper\bin\Debug\netcoreapp2.0\ExamsHelper.pdb
+F:\RetarCorp Project Exam Helper\ExamsHelper\ExamsHelper\obj\Debug\netcoreapp2.0\ExamsHelper.csprojResolveAssemblyReference.cache
+F:\RetarCorp Project Exam Helper\ExamsHelper\ExamsHelper\obj\Debug\netcoreapp2.0\ExamsHelper.csproj.CoreCompileInputs.cache
+F:\RetarCorp Project Exam Helper\ExamsHelper\ExamsHelper\obj\Debug\netcoreapp2.0\ExamsHelper.AssemblyInfoInputs.cache
+F:\RetarCorp Project Exam Helper\ExamsHelper\ExamsHelper\obj\Debug\netcoreapp2.0\ExamsHelper.AssemblyInfo.cs
+F:\RetarCorp Project Exam Helper\ExamsHelper\ExamsHelper\obj\Debug\netcoreapp2.0\ExamsHelper.dll
+F:\RetarCorp Project Exam Helper\ExamsHelper\ExamsHelper\obj\Debug\netcoreapp2.0\ExamsHelper.pdb
