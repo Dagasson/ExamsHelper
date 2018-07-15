@@ -20,5 +20,10 @@ namespace ExamsHelper.Context
         public dbcontext(DbContextOptions<dbcontext> options) : base(options)
         {
         }
+
+        public dbcontext()
+        {
+
+        }
     }
 }
