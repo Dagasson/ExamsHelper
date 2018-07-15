@@ -26,20 +26,26 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">ExamsHelper</a>
+               
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Exams Helper</a>
+                    @if (User.Identity.IsAuthenticated)
+    {
+
+    }
+    else
+    {
+                <a asp-area="" asp-controller="Home" asp-action="Registration" class="navbar-brand">Sign Up</a>
+                <a asp-area="" asp-controller="Home" asp-action="Log" class="navbar-brand">Sign In</a>
+}
                 </ul>
             </div>
         </div>
     </nav>
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2018 - ExamsHelper</p>
-        </footer>
     </div>
 
     <environment include="Development">
