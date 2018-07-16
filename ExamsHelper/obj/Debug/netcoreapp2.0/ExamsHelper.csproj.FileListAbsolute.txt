@@ -41,3 +41,4 @@ G:\Study\Практика\v2\ExamsHelper\ExamsHelper\obj\Debug\netcoreapp2.0\Exa
 G:\Study\Практика\v2\ExamsHelper\ExamsHelper\obj\Debug\netcoreapp2.0\ExamsHelper.AssemblyInfo.cs
 G:\Study\Практика\v2\ExamsHelper\ExamsHelper\obj\Debug\netcoreapp2.0\ExamsHelper.dll
 G:\Study\Практика\v2\ExamsHelper\ExamsHelper\obj\Debug\netcoreapp2.0\ExamsHelper.pdb
+G:\Study\Практика\v2\ExamsHelper\ExamsHelper\obj\Debug\netcoreapp2.0\ExamsHelper.csprojAssemblyReference.cache

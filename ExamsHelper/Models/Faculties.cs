@@ -18,5 +18,6 @@ namespace ExamsHelper.Models
 
         public List<Subjects> Subjects { get; set; }
 
+        public User User { get; set; }
     }
 }
