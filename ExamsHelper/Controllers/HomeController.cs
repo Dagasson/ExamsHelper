@@ -52,7 +52,7 @@ namespace ExamsHelper.Controllers
             if (uS.checkExistUser(login, password))
             {
                 await Authenticate(login);
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index",  "Home");
             }
 
             return View("Index", unvS.getAllUnivers());
