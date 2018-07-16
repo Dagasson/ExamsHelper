@@ -39,7 +39,7 @@ namespace ExamsHelper.Controllers
             user.UniversId = 0;
                 uS.createUser(user);
                 uS.Save();
-            return View("Index");
+            return View("Index", unvS.getAllUnivers());
         }
 
         [HttpGet]
