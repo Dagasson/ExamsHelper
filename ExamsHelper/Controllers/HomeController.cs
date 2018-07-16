@@ -42,6 +42,18 @@ namespace ExamsHelper.Controllers
             return View("Index", unvS.getAllUnivers());
         }
 
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public IActionResult Authorization([FromForm] User user)
+        {
+            user.FacultiesId = 0;
+            user.UniversId = 0;
+            uS.createUser(user);
+            uS.Save();
+            return View("Index", unvS.getAllUnivers());
+        }
+
         public IActionResult SignIn()
         {
             return View("Authorization");
