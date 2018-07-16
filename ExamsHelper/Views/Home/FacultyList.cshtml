@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ExamsHelper.Models.Univers>
+﻿@model IEnumerable<Faculties>
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -6,14 +6,11 @@
 <h2>Index</h2>
 
 
-<table class="table">
+<table class="table" title="@((string)ViewBag.ChoisenUniver)">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Town)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NameOfUniver)
+                @Html.DisplayNameFor(model => model.NameOfFaculties)
             </th>
         </tr>
     </thead>
@@ -22,11 +19,8 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Town)
-                </td>
-                <td>
                     <a asp-action="GetFaculties" asp-route-id="@item.Id">
-                        @Html.DisplayFor(modelItem => item.NameOfUniver)
+                        @Html.DisplayFor(modelItem => item.NameOfFaculties)
                     </a>
                 </td>
             </tr>

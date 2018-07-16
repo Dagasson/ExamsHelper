@@ -16,6 +16,61 @@ namespace ExamsHelper.Repository
         }
 
         private UserRepository userRepository;
+        private UniversityRepository univerRepository;
+        private FacultiesRepository facultyRepository;
+        private LectionsRepository lectionRepository;
+        private QuestionsRepository questionRepository;
+        private SubjectsRepository subjectRepository;
+
+        public SubjectsRepository Subjects
+        {
+            get
+            {
+                if (subjectRepository == null)
+                    subjectRepository = new SubjectsRepository(db);
+                return subjectRepository;
+            }
+        }
+
+        public QuestionsRepository Questions
+        {
+            get
+            {
+                if (questionRepository == null)
+                    questionRepository = new QuestionsRepository(db);
+                return questionRepository;
+            }
+        }
+
+        public LectionsRepository Lections
+        {
+            get
+            {
+                if (lectionRepository == null)
+                    lectionRepository = new LectionsRepository(db);
+                return lectionRepository;
+            }
+        }
+
+        public FacultiesRepository Faculties
+        {
+            get
+            {
+                if (facultyRepository == null)
+                    facultyRepository = new FacultiesRepository(db);
+                return facultyRepository;
+            }
+        }
+
+        public UniversityRepository Univers
+        {
+            get
+            {
+                if (univerRepository == null)
+                    univerRepository = new UniversityRepository(db);
+                return univerRepository;
+            }
+        }
 
 
         public UserRepository Users

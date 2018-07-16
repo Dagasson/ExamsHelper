@@ -12,7 +12,8 @@ namespace ExamsHelper.Models
         public Int32 Id { get; set; }
 
         public string NameOfUniver { get; set; }
-        
+        public string Town { get; set; }
+
         public List<Faculties> Faculties { get; set; }
     }
 }

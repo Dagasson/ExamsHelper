@@ -9,13 +9,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ExamsHelper.Context
 {
-    public class dbcontext : IdentityDbContext<User>
+    public class dbcontext : DbContext
     {
         public DbSet<Univers> Univers { get; set; }
         public DbSet<Faculties> Faculties { get; set; }
         public DbSet<Subjects> Subjects { get; set; }
         public DbSet<Questions> Questions { get; set; }
         public DbSet<Lections> Lections { get; set; }
+        public DbSet<User> Users { get; set; }
 
         public dbcontext(DbContextOptions<dbcontext> options) : base(options)
         {

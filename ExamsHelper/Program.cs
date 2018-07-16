@@ -7,6 +7,11 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.DependencyInjection;
+using ExamsHelper.Context;
+using ExamsHelper.Models;
+
+
 
 namespace ExamsHelper
 {
