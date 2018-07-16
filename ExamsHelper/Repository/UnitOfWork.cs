@@ -83,8 +83,6 @@ namespace ExamsHelper.Repository
             }
         }
 
-
-
         public void Save()
         {
             db.SaveChanges();

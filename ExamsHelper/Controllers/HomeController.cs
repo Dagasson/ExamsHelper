@@ -42,6 +42,11 @@ namespace ExamsHelper.Controllers
             return View("Index", unvS.getAllUnivers());
         }
 
+        public IActionResult SignIn()
+        {
+            return View("Authorization");
+        }
+
         [HttpGet]
         public IActionResult GetFaculties(Int32 Id)
         {
