@@ -35,8 +35,8 @@ namespace ExamsHelper.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult SignUp([FromForm] User user)
         {
-            user.FacultiesId = 0;
-            user.UniversId = 0;
+            user.FacultiesId = 1;
+            user.UniversId = 1;
                 uS.createUser(user);
                 uS.Save();
             return View("Index", unvS.getAllUnivers());

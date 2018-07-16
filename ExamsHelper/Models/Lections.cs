@@ -11,9 +11,8 @@ namespace ExamsHelper.Models
         public Int32 Id { get; set; }
 
         public byte[] Content { get; set; }
-
-        public string UserLogin { get; set;}
-        public User User { get; set; }
+        
+        //public User User{get;set;}
 
         public Int32 SubjectsId { get; set; }
         public Subjects Subjects { get; set; }
