@@ -15,7 +15,6 @@ namespace ExamsHelper.Models
         public string Town { get; set; }
 
         public List<Faculties> Faculties { get; set; }
-
-        public User User { get; set; }
+        
     }
 }

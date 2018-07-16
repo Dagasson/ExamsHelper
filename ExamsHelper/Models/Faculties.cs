@@ -17,7 +17,6 @@ namespace ExamsHelper.Models
         public Univers Univers { get; set; }
 
         public List<Subjects> Subjects { get; set; }
-
-        public User User { get; set; }
+        
     }
 }

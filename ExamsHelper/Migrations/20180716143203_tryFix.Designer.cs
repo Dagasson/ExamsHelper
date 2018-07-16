@@ -11,8 +11,8 @@ using System;
 namespace ExamsHelper.Migrations
 {
     [DbContext(typeof(dbcontext))]
-    [Migration("20180716132131_changeddatabase")]
-    partial class changeddatabase
+    [Migration("20180716143203_tryFix")]
+    partial class tryFix
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -48,15 +48,9 @@ namespace ExamsHelper.Migrations
 
                     b.Property<int>("SubjectsId");
 
-                    b.Property<string>("UserLogin");
-
-                    b.Property<int?>("Userid");
-
                     b.HasKey("Id");
 
                     b.HasIndex("SubjectsId");
-
-                    b.HasIndex("Userid");
 
                     b.ToTable("Lections");
                 });
@@ -117,26 +111,24 @@ namespace ExamsHelper.Migrations
 
             modelBuilder.Entity("ExamsHelper.Models.User", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Email");
 
                     b.Property<int>("FacultiesId");
 
+                    b.Property<string>("Login");
+
+                    b.Property<string>("Password");
+
                     b.Property<int>("UniversId");
 
-                    b.Property<string>("email");
+                    b.HasKey("Id");
 
-                    b.Property<string>("login");
+                    b.HasIndex("FacultiesId");
 
-                    b.Property<string>("password");
-
-                    b.HasKey("id");
-
-                    b.HasIndex("FacultiesId")
-                        .IsUnique();
-
-                    b.HasIndex("UniversId")
-                        .IsUnique();
+                    b.HasIndex("UniversId");
 
                     b.ToTable("Users");
                 });
@@ -154,10 +146,6 @@ namespace ExamsHelper.Migrations
                         .WithMany("Lections")
                         .HasForeignKey("SubjectsId")
                         .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("ExamsHelper.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("Userid");
                 });
 
             modelBuilder.Entity("ExamsHelper.Models.Questions", b =>
@@ -179,13 +167,13 @@ namespace ExamsHelper.Migrations
             modelBuilder.Entity("ExamsHelper.Models.User", b =>
                 {
                     b.HasOne("ExamsHelper.Models.Faculties", "Faculties")
-                        .WithOne("User")
-                        .HasForeignKey("ExamsHelper.Models.User", "FacultiesId")
+                        .WithMany()
+                        .HasForeignKey("FacultiesId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ExamsHelper.Models.Univers", "Univers")
-                        .WithOne("User")
-                        .HasForeignKey("ExamsHelper.Models.User", "UniversId")
+                        .WithMany()
+                        .HasForeignKey("UniversId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
