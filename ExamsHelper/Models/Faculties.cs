@@ -16,6 +16,8 @@ namespace ExamsHelper.Models
         public Int32 UniverId { get; set; }
         public Univers Univers { get; set; }
 
+        public List<User> Users { get; set; }
+
         public List<Subjects> Subjects { get; set; }
         
     }
