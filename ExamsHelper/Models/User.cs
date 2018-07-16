@@ -19,5 +19,7 @@ namespace ExamsHelper.Models
 
         public Int32 UniversId { get; set; }
         public Univers Univers { get; set; }
+
+        public Lections Lections { get; set; }
     }
 }

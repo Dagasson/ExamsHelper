@@ -11,9 +11,10 @@ using System;
 namespace ExamsHelper.Migrations
 {
     [DbContext(typeof(dbcontext))]
-    partial class dbcontextModelSnapshot : ModelSnapshot
+    [Migration("20180716132131_changeddatabase")]
+    partial class changeddatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
