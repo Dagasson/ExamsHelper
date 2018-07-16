@@ -27,5 +27,15 @@ namespace ExamsHelper.Services
             unitOfWork.Users.Create(user);
         }
 
+        public bool checkExistUser(string login, string password)
+        {
+            foreach (User user in unitOfWork.Users.GetAll())
+            {
+                if (user.Login.Equals(login) && user.Password.Equals(password))
+                    return true;
+            }
+            return false;
+        }
+
     }
 }

@@ -10,6 +10,7 @@ using ExamsHelper.Context;
 using Microsoft.EntityFrameworkCore;
 using ExamsHelper.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace ExamsHelper
 {
@@ -29,6 +30,13 @@ namespace ExamsHelper
             services.AddDbContext<dbcontext>(options =>
                 options.UseSqlServer(connection));
 
+            services.AddAuthentication(options =>
+            {
+                options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            })
+               .AddCookie();
             services.AddMvc();
         }
 
@@ -45,6 +53,7 @@ namespace ExamsHelper
                 app.UseExceptionHandler("/Home/Error");
             }
 
+            app.UseAuthentication();
             app.UseStaticFiles();
 
             app.UseMvc(routes =>
