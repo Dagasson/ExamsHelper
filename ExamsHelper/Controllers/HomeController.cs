@@ -8,6 +8,9 @@ using ExamsHelper.Models;
 using ExamsHelper.Context;
 using ExamsHelper.Services;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace ExamsHelper.Controllers
 {
@@ -29,7 +32,6 @@ namespace ExamsHelper.Controllers
             return View("Index",unvS.getAllUnivers());
         }
 
-
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -45,12 +47,14 @@ namespace ExamsHelper.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public IActionResult Authorization([FromForm] User user)
+        public async Task<IActionResult> Authorization(string login, string password)
         {
-            user.FacultiesId = 0;
-            user.UniversId = 0;
-            uS.createUser(user);
-            uS.Save();
+            if (uS.checkExistUser(login, password))
+            {
+                await Authenticate(login);
+                return RedirectToAction("Index",  "Home");
+            }
+
             return View("Index", unvS.getAllUnivers());
         }
 
@@ -79,5 +83,23 @@ namespace ExamsHelper.Controllers
           {
             return View();
           }
+
+        private async Task Authenticate(string username)
+        {
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimsIdentity.DefaultNameClaimType, username),
+            };
+            ClaimsIdentity id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType,
+                ClaimsIdentity.DefaultRoleClaimType);
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
+        }
+
+        public async Task<IActionResult> SignOut()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Index", "Home");
+        }
+
     }
 }
