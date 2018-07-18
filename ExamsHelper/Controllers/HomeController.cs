@@ -49,13 +49,30 @@ namespace ExamsHelper.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Authorization(string login, string password)
         {
+            
+            if (login == null)
+            {
+                return RedirectToAction("authorizationErrorReturn", new { errMsg = "Введите логин" });
+            }
+            if (password == null)
+            {
+                return RedirectToAction("authorizationErrorReturn", new { errMsg = "Введите пароль" });
+            }
             if (uS.checkExistUser(login, password))
             {
                 await Authenticate(login);
                 return RedirectToAction("Index",  "Home");
             }
+            else
+            {
+                return RedirectToAction("authorizationErrorReturn",new { errMsg="Неправильный логин или пароль"});
+            }
+        }
 
-            return View("Index", unvS.getAllUnivers());
+        public IActionResult authorizationErrorReturn(string errMsg)
+        {
+            ModelState.AddModelError("", errMsg);
+            return View("Authorization");
         }
 
         public IActionResult SignIn()
