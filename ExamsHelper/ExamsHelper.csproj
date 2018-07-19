@@ -20,4 +20,13 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Faculties\" />
+    <Folder Include="Views\Lections\" />
+    <Folder Include="Views\Questions\" />
+    <Folder Include="Views\Subjects\" />
+    <Folder Include="Views\Univers\" />
+    <Folder Include="Views\User\" />
+  </ItemGroup>
+
 </Project>
