@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20180716132131_changeddatabase.cs" />
+    <Compile Remove="Migrations\20180716132131_changeddatabase.Designer.cs" />
+    <Compile Remove="Migrations\20180716140320_test.cs" />
+    <Compile Remove="Migrations\20180716140320_test.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.8" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.2" />
   </ItemGroup>

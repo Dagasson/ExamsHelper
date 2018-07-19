@@ -12,7 +12,7 @@ namespace ExamsHelper.Models
 
         public byte[] Content { get; set; }
         
-        //public User User{get;set;}
+        public User User{get;set;}
 
         public Int32 SubjectsId { get; set; }
         public Subjects Subjects { get; set; }
