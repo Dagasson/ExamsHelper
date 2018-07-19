@@ -95,11 +95,6 @@ namespace ExamsHelper.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-        
-        public IActionResult Registration()
-          {
-            return View();
-          }
 
         private async Task Authenticate(string username)
         {

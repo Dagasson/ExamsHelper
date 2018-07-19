@@ -1,0 +1,192 @@
+﻿
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poiret One", "Arial", sans-serif;
+    font-size: 16px;
+    line-height: 1.3;
+    color: #464646;
+    text-decoration: none;
+    background-image: url("~/images/banner1.svg");
+    background-color: #3da6ad;
+    background-size: auto;
+}
+
+.login-popup {
+    padding: 30px 0 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    min-height: 330px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 0 40px 5px #333;
+    box-shadow: 0 0 40px 5px rgba(0, 0, 0, 0.7);
+    box-sizing: border-box;
+}
+
+.login-popup__menu {
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.button-wrapper {
+    width: 45%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.login-popup__title {
+    margin: 0;
+    font-family: "Poiret One", "Arial", sans-serif;
+    font-size: 26px;
+    line-height: 1.3;
+}
+
+.button {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.button--styled {
+    font-family: "Poiret One", "Arial", sans-serif;
+    font-size: 22px;
+    line-height: 1.3;
+    color: #464646;
+    border-bottom: 1px solid transparent;
+    background: none;
+}
+
+    .button--styled:hover {
+        border-bottom: 1px solid #464646;
+    }
+
+    .button--styled:active {
+        border-bottom: 1px solid #47a6a2;
+        color: #47a6a2;
+    }
+
+.button--big {
+    align-self: center;
+    margin-top: auto;
+    font-family: "Poiret One", "Arial", sans-serif;
+    font-size: 26px;
+    line-height: 1.3;
+    border-bottom: 1px solid #464646;
+    color: #464646;
+    background: none;
+}
+
+    .button--big:hover {
+        border-bottom: 1px solid #47a6a2;
+    }
+
+    .button--big:active {
+        border-bottom: 1px solid #47a6a2;
+        color: #47a6a2;
+    }
+
+.button--active {
+    border-bottom: 1px solid #47a6a2;
+    color: #47a6a2;
+}
+
+    .button--active:hover {
+        border-bottom: 1px solid #47a6a2;
+        color: #47a6a2;
+    }
+
+    .button--active:active {
+        border-bottom: 1px solid #47a6a2;
+        color: #47a6a2;
+    }
+
+.login-popup__content {
+    display: flex;
+    flex-direction: column;
+    padding: 0 3% 0 7%;
+}
+
+.login-popup__row {
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.login-popup__row--last {
+    margin-bottom: 35px;
+}
+
+.login-popup__text {
+    font-family: "Poiret One", "Arial", sans-serif;
+    font-size: 22px;
+    line-height: 1.3;
+    color: #464646;
+}
+
+.input {
+    width: 65%;
+    font-family: "Poiret One", "Arial", sans-serif;
+    font-size: 26px;
+    line-height: 1.3;
+    text-decoration: none;
+    text-transform: none;
+    color: #464646;
+    border: none;
+    border-bottom: 1px solid #777777;
+}
+
+@media (min-width: 1281px) {
+    .login-popup {
+        padding-left: 3%;
+        padding-right: 3%;
+        width: 33%;
+        margin-left: -16.5%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1280px) {
+    .login-popup {
+        padding-left: 5%;
+        padding-right: 5%;
+        width: 30%;
+        margin-left: -20%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1280px) and (orientation: landscape) {
+    .login-popup {
+        padding-left: 3%;
+        padding-right: 3%;
+        width: 50%;
+        margin-left: -25%;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .login-popup {
+        padding-left: 3%;
+        padding-right: 3%;
+        width: 90%;
+        margin-left: -45%;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 480px) and (orientation: landscape) {
+    .login-popup {
+        padding-left: 2%;
+        padding-right: 2%;
+        width: 90%;
+        margin-left: -45%;
+    }
+}

@@ -27,6 +27,7 @@
     <Folder Include="Views\Subjects\" />
     <Folder Include="Views\Univers\" />
     <Folder Include="Views\User\" />
+    <Folder Include="wwwroot\fonts\" />
   </ItemGroup>
 
 </Project>
