@@ -26,5 +26,10 @@ namespace ExamsHelper.Services
         {
             return unitOfWork.Univers.GetAll();
         }
+
+        public Univers getUniverById(int id)
+        {
+            return unitOfWork.Univers.Get(id);
+        }
     }
 }

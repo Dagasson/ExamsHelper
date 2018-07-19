@@ -22,6 +22,36 @@ namespace ExamsHelper.Services
             unitOfWork.Save();
         }
 
+        public bool checkExistLogAndEmail(string login, string email)
+        {
+            foreach (User u in unitOfWork.Users.GetAll())
+            {
+                if (u.Login.Equals(login) || u.Email.Equals(email))
+                    return false;
+            }
+            return true;
+        }
+
+        public User getUserByLogin(string userLogin)
+        {
+            foreach(User u in unitOfWork.Users.GetAll())
+            {
+                if (u.Login.Equals(userLogin))
+                    return u;
+            }
+            return null;
+        }
+
+        public User getUserById(int id)
+        {
+           return unitOfWork.Users.Get(id);
+        }
+
+        public void updateUser(User user)
+        {
+            unitOfWork.Users.Update(user);
+        }
+
         public void createUser(User user)
         {
             unitOfWork.Users.Create(user);
