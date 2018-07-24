@@ -43,5 +43,11 @@ namespace ExamsHelper.Repository
             if (faculty != null)
                 db.Faculties.Remove(faculty);
         }
+
+        public IEnumerable<Faculties> GetFacultiesOfUniver(int idOfUniver)
+        {
+            return db.Faculties.Where(c=>c.UniverId==idOfUniver);
+        }
+
     }
 }

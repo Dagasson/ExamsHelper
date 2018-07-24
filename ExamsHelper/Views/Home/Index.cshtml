@@ -5,6 +5,35 @@
 
 <h2>Index</h2>
 
+<form method="post">
+    <select asp-items="ViewBag.univers" id="univer"></select>
+</form>
+
+<form method="post">
+    <select asp-items="ViewBag.faculties" id="facultyid"></select>
+</form>
+
+@section scripts{
+    <script type="text/javascript">
+    $(function () {
+
+        $('#univer').change(function()
+        {
+            // получаем выбранный id
+            var id = $(this).val();
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("GetFacultiesOfUnivers")/' + id,
+                success: function (data) {
+
+                    // заменяем содержимое присланным частичным представлением
+                    $('#facultyid').replaceWith(data);
+                }
+            });
+        });
+    })
+    </script>
+}
 
 <table class="table">
     <thead>

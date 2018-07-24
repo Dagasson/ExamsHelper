@@ -26,5 +26,10 @@ namespace ExamsHelper.Services
         {
             return unitOfWork.Faculties.GetAll();
         }
+
+        public IEnumerable<Faculties> getFacultiesOfUniver(int idOfUniver)
+        {
+            return unitOfWork.Faculties.GetFacultiesOfUniver(idOfUniver);
+        }
     }
 }
