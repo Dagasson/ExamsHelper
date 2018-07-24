@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace ExamsHelper.Controllers
 {
@@ -29,12 +30,21 @@ namespace ExamsHelper.Controllers
 
         public IActionResult Index()
         {
+            int defaultUniversId = 1;
+            IEnumerable<Univers> univers = new List<Univers> { };
+            univers = unvS.getAllUnivers();
+            ViewBag.univers = new SelectList(univers, "Id", "NameOfUniver", defaultUniversId);
+
+            IEnumerable<Faculties> faculties = new List<Faculties> { };
+            faculties = fS.getFacultiesOfUniver(defaultUniversId);
+            ViewBag.faculties = new SelectList(faculties, "Id", "NameOfFaculties");
+
             return View("Index",unvS.getAllUnivers());
         }
 
-        public IActionResult Reg()
+        public ActionResult GetFacultiesOfUnivers(int id)
         {
-            return View("Registration");
+            return PartialView(fS.getFacultiesOfUniver(id));
         }
 
         [HttpPost]
