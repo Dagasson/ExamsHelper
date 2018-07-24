@@ -20,12 +20,14 @@ namespace ExamsHelper.Controllers
       UserService uS;
       UniversityService unvS;
       FacultyService fS;
+      SubjectService sS;
 
         public HomeController(dbcontext context)
         {
             uS = new UserService(context);
             unvS = new UniversityService(context);
             fS = new FacultyService(context);
+            sS = new SubjectService(context);
          }
 
         public IActionResult Index()
@@ -47,6 +49,10 @@ namespace ExamsHelper.Controllers
             return PartialView(fS.getFacultiesOfUniver(id));
         }
 
+        public ActionResult GetSubjectsOfFaculty(int id)
+        {
+            return View(sS.getSubjectsOfFaculty(id));
+        }
         public IActionResult Reg()
         {
             int defaultUniversId = 1;

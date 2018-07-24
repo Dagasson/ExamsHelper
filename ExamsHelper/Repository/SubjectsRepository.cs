@@ -37,6 +37,11 @@ namespace ExamsHelper.Repository
             db.Entry(subject).State = EntityState.Modified;
         }
 
+        public IEnumerable<Subjects> GetSubjectsOfFaculty(int id)
+        {
+            return db.Subjects.Where(c => c.FacultiesId == id);
+        }
+
         public void Delete(int id)
         {
             Subjects subject = db.Subjects.Find(id);
