@@ -1,4 +1,5 @@
 ﻿using ExamsHelper.Context;
+using ExamsHelper.Models;
 using ExamsHelper.Repository;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,11 @@ namespace ExamsHelper.Services
         public QuestionService(dbcontext context)
         {
             unitOfWork = new UnitOfWork(context);
+        }
+
+        public IEnumerable<Questions> getSubjectQuestions(int id)
+        {
+           return unitOfWork.Questions.GetAll().Where(q => q.SubjectsId.Equals(id));
         }
 
         public void Save()

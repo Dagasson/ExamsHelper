@@ -1,0 +1,43 @@
+﻿@model IEnumerable<ExamsHelper.Models.Questions>
+@{
+    ViewData["Title"] = "Questions";
+}
+
+<html>
+
+<head>
+    <h2 style="color:white">My Questions</h2>
+</head>
+
+<body style="background-color:darkgray">
+    <div class="well">
+        <table class="table">
+            <tr>
+                <td>
+                    Number
+                </td>
+                <td>
+                    Question
+                </td>
+                <td>
+                    Answer
+                </td>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.NumberOfQuestion </td>
+                    <td>@item.Question</td>
+                    <td>
+                        <a>Show</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+
+</body>
+
+</html>
+
