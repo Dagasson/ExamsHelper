@@ -42,6 +42,13 @@ namespace ExamsHelper.Services
             return null;
         }
 
+        public void ChangePassword(string p, string log)
+        {
+            User user = getUserByLogin(log);
+            user.Password = p;
+            updateUser(user);
+        }
+
         public User getUserById(int id)
         {
            return unitOfWork.Users.Get(id);

@@ -1,0 +1,49 @@
+﻿@model User
+<html>
+
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <title> Profile</title>
+</head>
+
+<body style=" background-color: darkgray">
+    <div style="display:inline-table; color:white;">
+        <h1 style="color:white">User Profile </h1>
+        <form method="post">
+            <table class="table table-user-information">
+                <tbody>
+                    <tr>
+                        <td>Login</td>
+                        <td>@Model.Login</td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td> @Model.Email</td>
+                    </tr>
+                    <tr>
+                        <td>University</td>
+                        <td> @Model.Univers.NameOfUniver</td>
+                    </tr>
+                    <tr>
+                        <td>Faculty</td>
+                        <td> @Model.Faculties.NameOfFaculties</td>
+                    </tr>
+                    <tr>
+                        <td>Town</td>
+                        <td> @Model.Univers.Town</td>
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                        <td> <input type="password" name="password" class="form-control" value="@Model.Password" autofocus required></td>
+                    </tr>
+                </tbody>
+            </table>
+            <input asp-controller="Users" asp-action="ChangePassword" type="submit" value="Change Password" class="btn btn-lg btn-success btn-block">
+        </form>
+    </div>
+</body>
+
+</html>
+

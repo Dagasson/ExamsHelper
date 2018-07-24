@@ -19,7 +19,7 @@ namespace ExamsHelper.Repository
 
         public IEnumerable<User> GetAll()
         {
-            return db.Users;
+            return db.Users.Include(u => u.Univers).Include(f => f.Faculties);
         }
 
         public User Get(int id)

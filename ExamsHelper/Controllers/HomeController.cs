@@ -47,16 +47,26 @@ namespace ExamsHelper.Controllers
             return PartialView(fS.getFacultiesOfUniver(id));
         }
 
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public IActionResult SignUp([FromForm] User user)
+        public IActionResult Reg()
         {
-            user.FacultiesId = 0;
-            user.UniversId = 0;
+            int defaultUniversId = 1;
+            IEnumerable<Univers> univers = new List<Univers> { };
+            univers = unvS.getAllUnivers();
+            ViewBag.univers = new SelectList(univers, "Id", "NameOfUniver", defaultUniversId);
+
+            IEnumerable<Faculties> faculties = new List<Faculties> { };
+            faculties = fS.getFacultiesOfUniver(defaultUniversId);
+            ViewBag.faculties = new SelectList(faculties, "Id", "NameOfFaculties");
+            return View("Registration",unvS.getAllUnivers());
+        }
+
+        [HttpPost]
+        public IActionResult SignUp(string login, string password, string email, int univer, int faculty )
+        {
+            User user = new User (login,password, email, univer, faculty);
                 uS.createUser(user);
                 uS.Save();
-            return View("Index", unvS.getAllUnivers());
+            return View("Authorization");
         }
 
         [HttpPost]

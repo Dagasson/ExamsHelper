@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - ExamsHelper</title>
+    <title>ExamsHelper</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -17,32 +17,33 @@
     </environment>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+
+        <nav  class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
 
 
-            <div class="navbar-collapse collapse">
+        <div class="navbar-collapse collapse">
 
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Exams Helper</a>
-                @if (User.Identity.IsAuthenticated)
-    {
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> @User.Identity.Name <span class="caret"></span> </a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a asp-controller="Home" asp-action="Profile">Profile</a></li>
-                        <li><a asp-controller="Home" asp-action="SignOut">Sign Out</a></li>
-                    </ul>
-            </ul>
-}
-else
-{
-            <a asp-area="" asp-controller="Home" asp-action="SignIn" class="navbar-brand">Sign In / Sign Up</a>
+            <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Exams Helper</a>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> @User.Identity.Name <span class="caret"></span> </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a asp-controller="Users" asp-action="Users">Profile</a></li>
+                            <li><a asp-controller="Home" asp-action="SignOut">Sign Out</a></li>
+                        </ul>
+                </ul>
+            }
+            else
+            {
+                <a asp-area="" asp-controller="Home" asp-action="SignIn" class="navbar-brand">Sign In</a>
 
-}
+            }
 
-            </div>
         </div>
+    </div>
     </nav>
     <div class="container body-content">
         @RenderBody()

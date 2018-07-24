@@ -21,5 +21,19 @@ namespace ExamsHelper.Models
         public Int32 UniversId { get; set; }
         public Univers Univers { get; set; }
         
+        public User (string login, string password, string email, int univer, int faculty)
+        {
+            Login = login;
+            Email = email;
+            Password = password;
+            FacultiesId = faculty;
+            UniversId = univer;
+        }
+
+        public User()
+        {
+
+        }
+
     }
 }

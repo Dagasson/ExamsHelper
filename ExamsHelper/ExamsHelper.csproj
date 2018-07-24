@@ -26,7 +26,6 @@
     <Folder Include="Views\Questions\" />
     <Folder Include="Views\Subjects\" />
     <Folder Include="Views\Univers\" />
-    <Folder Include="Views\User\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
