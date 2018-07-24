@@ -63,10 +63,14 @@
                                         <input type="password" class="form-control" name="password" placeholder="Password" />
                                     </div>
                                 </div>
-                                <select  name="univer" asp-items="ViewBag.univers" id="univer"></select>
+                                <div>
+                                    <select  name="univer" asp-items="ViewBag.univers" id="univer"></select>
+                                    </div>
+                                <div>
                                 <select name="faculty" asp-items="ViewBag.faculties" id="facultyid"></select>
-                             
-                        </div>
+                                </div>
+                                <div asp-validation-summary="ModelOnly"></div>
+                       
                         <div class="form-group">
                             <input asp-action="SignUp" asp-controller="Home" type="submit" class="btn btn-lg btn-primary btn-block" value="Sign Up">
                         </div>

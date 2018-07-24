@@ -66,9 +66,46 @@ namespace ExamsHelper.Controllers
             return View("Registration",unvS.getAllUnivers());
         }
 
+        public IActionResult registrationErrorReturn(string errMsg)
+        {
+            int defaultUniversId = 1;
+            IEnumerable<Univers> univers = new List<Univers> { };
+            univers = unvS.getAllUnivers();
+            ViewBag.univers = new SelectList(univers, "Id", "NameOfUniver", defaultUniversId);
+
+            IEnumerable<Faculties> faculties = new List<Faculties> { };
+            faculties = fS.getFacultiesOfUniver(defaultUniversId);
+            ViewBag.faculties = new SelectList(faculties, "Id", "NameOfFaculties");
+
+            ModelState.AddModelError("", errMsg);
+            return View("Registration", unvS.getAllUnivers());
+        }
+
         [HttpPost]
         public IActionResult SignUp(string login, string password, string email, int univer, int faculty )
         {
+
+
+            if (login == null)
+            {
+                return RedirectToAction("registrationErrorReturn", new { errMsg = "Введите логин" });
+            }
+            if (email == null)
+            {
+                return RedirectToAction("registrationErrorReturn", new { errMsg = "Введите email" });
+            }
+            if (password == null)
+            {
+                return RedirectToAction("registrationErrorReturn", new { errMsg = "Введите пароль" });
+            }
+            if(!uS.checkExistLogin(login))
+            {
+                return RedirectToAction("registrationErrorReturn", new { errMsg = "Пользователь с таким именем уже существует" });
+            }
+            if (!uS.checkExistEmail(email))
+            {
+                return RedirectToAction("registrationErrorReturn", new { errMsg = "Пользователь с такой почтой уже существует" });
+            }
             User user = new User (login,password, email, univer, faculty);
                 uS.createUser(user);
                 uS.Save();

@@ -22,11 +22,31 @@ namespace ExamsHelper.Services
             unitOfWork.Save();
         }
 
-        public bool checkExistLogAndEmail(string login, string email)
+        public bool checkExistLogAndEmail(string login, string email)//оставил и такую, вдруг пригодится)
         {
             foreach (User u in unitOfWork.Users.GetAll())
             {
                 if (u.Login.Equals(login) || u.Email.Equals(email))
+                    return false;
+            }
+            return true;
+        }
+
+        public bool checkExistEmail(string email)
+        {
+            foreach (User u in unitOfWork.Users.GetAll())
+            {
+                if (u.Email.Equals(email))
+                    return false;
+            }
+            return true;
+        }
+
+        public bool checkExistLogin(string login)
+        {
+            foreach (User u in unitOfWork.Users.GetAll())
+            {
+                if (u.Login.Equals(login))
                     return false;
             }
             return true;
