@@ -32,6 +32,11 @@ namespace ExamsHelper.Controllers
             return View("Index",unvS.getAllUnivers());
         }
 
+        public IActionResult Reg()
+        {
+            return View("Registration");
+        }
+
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
