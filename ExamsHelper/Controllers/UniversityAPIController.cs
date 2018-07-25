@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-
+using ExamsHelper.Services;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace ExamsHelper.Controllers
@@ -11,18 +11,20 @@ namespace ExamsHelper.Controllers
     [Route("api/[controller]")]
     public class UniversityAPIController : Controller
     {
+
+        UniversityService uS;
         // GET: api/<controller>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public JsonResult Get()
         {
-            return new string[] { "value1", "value2" };
+            return Json(uS.getAllUnivers());
         }
 
         // GET api/<controller>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public JsonResult Get(int id)
         {
-            return "value";
+            return Json(uS.getUniverById(id));
         }
 
         // POST api/<controller>
