@@ -17,6 +17,21 @@ namespace ExamsHelper.Services
             unitOfWork = new UnitOfWork(context);
         }
 
+        public void CreateQuest(string q, int s)
+        {
+            Questions ques = new Questions();
+            ques.Question = q;
+            ques.SubjectsId = s;
+            unitOfWork.Questions.Create(ques);
+            unitOfWork.Save();
+        }
+
+        public IEnumerable<Subjects> getUserFacultySubjects(int id)
+        {
+            
+            return unitOfWork.Subjects.GetAll().Where(s => s.FacultiesId.Equals(unitOfWork.Users.Get(id).FacultiesId));
+        }
+
         public IEnumerable<Questions> getSubjectQuestions(int id)
         {
            return unitOfWork.Questions.GetAll().Where(q => q.SubjectsId.Equals(id));

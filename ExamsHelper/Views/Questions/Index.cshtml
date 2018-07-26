@@ -10,6 +10,14 @@
 </head>
 
 <body style="background-color:darkgray">
+    @functions
+    {
+    int counter = 0;
+    int returnNumber()
+    {
+        return ++counter;
+    }
+    }
     <div class="well">
         <table class="table">
             <tr>
@@ -27,7 +35,9 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>@item.NumberOfQuestion </td>
+                    <td>
+                        @returnNumber()
+                    </td>
                     <td>@item.Question</td>
                     <td>
                         <a>Show</a>

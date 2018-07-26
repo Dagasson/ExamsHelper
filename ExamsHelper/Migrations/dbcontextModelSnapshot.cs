@@ -65,8 +65,6 @@ namespace ExamsHelper.Migrations
 
                     b.Property<string>("Answer");
 
-                    b.Property<int>("NumberOfQuestion");
-
                     b.Property<string>("Question");
 
                     b.Property<int>("SubjectsId");
@@ -122,6 +120,8 @@ namespace ExamsHelper.Migrations
                     b.Property<int>("FacultiesId");
 
                     b.Property<string>("Login");
+
+                    b.Property<bool>("Moderator");
 
                     b.Property<string>("Password");
 

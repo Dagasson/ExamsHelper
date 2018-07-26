@@ -62,6 +62,16 @@ namespace ExamsHelper.Services
             return null;
         }
 
+        public bool checkModerRole(string login)
+        {
+            foreach(User u in unitOfWork.Users.GetAll())
+            {
+                if (u.Login.Equals(login) && u.Moderator)
+                    return true;
+            }
+            return false;
+        }
+
         public void ChangePassword(string p, string log)
         {
             User user = getUserByLogin(log);

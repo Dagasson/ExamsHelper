@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create Question</h2>
+
+<body style="background-color:darkgray">
+    <div style="margin-top:40px;" class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h5 class="text-center">
+                            <h1>Create </h1>
+                        </h5>
+                        <form method="post">
+                            <input type="text" name="Question">
+                            <select class="form-control form-control-lg" name="Subject" asp-items="ViewBag.subj" id="univer"></select>
+                            <br />
+                            <input class="btn btn-warning" asp-action="Create" asp-controller="Questions" type="submit" value="Create Question" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>

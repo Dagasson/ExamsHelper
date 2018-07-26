@@ -13,7 +13,6 @@ namespace ExamsHelper.Models
 
         public string Question { get; set; }
         public string Answer { get; set; }
-        public Int32 NumberOfQuestion { get; set; }
 
         public Int32 SubjectsId { get; set; }
         public Subjects Subjects { get; set; }

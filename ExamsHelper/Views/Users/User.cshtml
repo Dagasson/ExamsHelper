@@ -35,6 +35,17 @@
                         <td> @Model.Univers.Town</td>
                     </tr>
                     <tr>
+                        <td>Moderator</td>
+                        @if (Model.Moderator)
+    {
+                    <td>   Yes </td>
+}
+else
+{
+                    <td>  No </td>
+}
+                    </tr>
+                    <tr>
                         <td>Password</td>
                         <td> <input type="password" name="password" class="form-control" value="@Model.Password" autofocus required></td>
                     </tr>
