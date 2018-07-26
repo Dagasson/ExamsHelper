@@ -115,6 +115,8 @@ namespace ExamsHelper.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<bool>("Admin");
+
                     b.Property<string>("Email");
 
                     b.Property<int>("FacultiesId");

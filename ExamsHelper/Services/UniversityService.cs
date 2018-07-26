@@ -22,6 +22,14 @@ namespace ExamsHelper.Services
             unitOfWork.Save();
         }
 
+        public void createUniver(string n, string t)
+        {
+            Univers un = new Univers();
+            un.NameOfUniver = n;
+            un.Town = t;
+            unitOfWork.Univers.Create(un);
+        }
+
         public IEnumerable<Univers> getAllUnivers()
         {
             return unitOfWork.Univers.GetAll();

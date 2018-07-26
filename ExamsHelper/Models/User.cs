@@ -15,6 +15,7 @@ namespace ExamsHelper.Models
         public string Email { get; set; }
         public string Password { get; set; }
         public bool Moderator { get; set; }
+        public bool Admin { get; set; }
 
         public Int32 FacultiesId { get; set; }
         public Faculties Faculties { get; set; }
@@ -30,6 +31,7 @@ namespace ExamsHelper.Models
             FacultiesId = faculty;
             UniversId = univer;
             Moderator = false;
+            Admin = false;
         }
 
         public User()

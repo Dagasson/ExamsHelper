@@ -62,6 +62,17 @@ namespace ExamsHelper.Services
             return null;
         }
 
+
+        public bool checkAdmRole(string login)
+        {
+            foreach (User u in unitOfWork.Users.GetAll())
+            {
+                if (u.Login.Equals(login) && u.Admin)
+                    return true;
+            }
+            return false;
+        }
+
         public bool checkModerRole(string login)
         {
             foreach(User u in unitOfWork.Users.GetAll())
