@@ -21,6 +21,21 @@ namespace ExamsHelper.Services
         {
             return unitOfWork.Subjects.GetSubjectsOfFaculty(idOfFaculty);
         }
+        public IEnumerable<Faculties> getUserUniversityFaculties(int id)
+        {
+            return unitOfWork.Faculties.GetAll().Where(f => f.Id.Equals(unitOfWork.Users.Get(id).FacultiesId));
+        }
+
+        public void CreateSubject(string n, string t, string s, int fId)
+        {
+            Subjects subj = new Subjects();
+            subj.NameOfSubject = n;
+            subj.Teacher = t;
+            subj.Speciality = s;
+            subj.FacultiesId = fId;
+            unitOfWork.Subjects.Create(subj);
+            unitOfWork.Save();
+        }
 
         public void Save()
         {
