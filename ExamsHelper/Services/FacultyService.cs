@@ -22,6 +22,12 @@ namespace ExamsHelper.Services
             unitOfWork.Save();
         }
 
+        public void deleteFaculty(int id)
+        {
+            unitOfWork.Faculties.Delete(id);
+            unitOfWork.Save();
+        }
+
         public void createFaculty(string n, int Uid)
         {
             Faculties f = new Faculties();

@@ -22,6 +22,12 @@ namespace ExamsHelper.Services
             unitOfWork.Save();
         }
 
+        public void deleteUniver(int id)
+        {
+            unitOfWork.Univers.Delete(id);
+            unitOfWork.Save();
+        }
+
         public void createUniver(string n, string t)
         {
             Univers un = new Univers();
