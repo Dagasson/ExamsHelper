@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ExamsHelper.Context;
+using ExamsHelper.Models;
 using ExamsHelper.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -69,7 +70,11 @@ namespace ExamsHelper.Controllers
         {
             if (uS.checkAdmRole(User.Identity.Name))
             {
-                return View("Index");
+                AdminViewModel views = new AdminViewModel();
+                views.users = uS.getAllUsers().ToList();
+                views.univers = unvS.getAllUnivers().ToList();
+                views.faculties = fS.getAllFaculties().ToList();
+                return View("Index",views);
             }
             return RedirectToAction("Index", "Home");
         }
