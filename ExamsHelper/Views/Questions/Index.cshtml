@@ -18,6 +18,7 @@
         return ++counter;
     }
     }
+    <br />
     <div class="well">
         <table class="table">
             <tr>
@@ -30,19 +31,25 @@
                 <td>
                     Answer
                 </td>
+                <td>
+                    Delete
+                </td>
             </tr>
 
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        @returnNumber()
-                    </td>
-                    <td>@item.Question</td>
-                    <td>
-                        <a>Show</a>
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    @returnNumber()
+                </td>
+                <td>@item.Question</td>
+                <td>
+                    <a>Show</a>
+                </td>
+                <td>
+                    <a>Delete</a>
+                </td>
+            </tr>
             }
         </table>
     </div>

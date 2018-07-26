@@ -6,10 +6,11 @@
 <html>
 
 <head>
-    <h2 style="color:white">My Sybjects</h2>
+    <h2 style="color:white">My Subjects</h2>
 </head>
 
 <body style="background-color:darkgray">
+    <br />
     <div class="well">
         <table class="table">
             <tr>
@@ -25,18 +26,24 @@
                 <td>
                     Exam Questions
                 </td>
+                <td>
+                    Delete
+                </td>
             </tr>
             
             @foreach (var item in Model)
     {
-        <tr>
-            <td>@item.NameOfSubject </td>
-            <td>@item.Speciality</td>
-            <td>@item.Teacher</td>
-            <td>
+            <tr>
+                <td>@item.NameOfSubject </td>
+                <td>@item.Speciality</td>
+                <td>@item.Teacher</td>
+                <td>
                     <a href="~/Questions/ShowSubjectQuestions/?id=@item.Id">Show</a>
-                    </td>
-        </tr>
+                </td>
+                <td>
+                    <a>Delete</a>
+                </td>
+            </tr>
 }
         </table>
     </div>
