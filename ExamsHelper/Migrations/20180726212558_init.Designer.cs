@@ -11,8 +11,8 @@ using System;
 namespace ExamsHelper.Migrations
 {
     [DbContext(typeof(dbcontext))]
-    [Migration("20180716145656_changedmodels")]
-    partial class changedmodels
+    [Migration("20180726212558_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,9 +28,7 @@ namespace ExamsHelper.Migrations
 
                     b.Property<string>("NameOfFaculties");
 
-                    b.Property<int>("UniverId");
-
-                    b.Property<int?>("UniversId");
+                    b.Property<int>("UniversId");
 
                     b.HasKey("Id");
 
@@ -65,8 +63,6 @@ namespace ExamsHelper.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Answer");
-
-                    b.Property<int>("NumberOfQuestion");
 
                     b.Property<string>("Question");
 
@@ -118,11 +114,15 @@ namespace ExamsHelper.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<bool>("Admin");
+
                     b.Property<string>("Email");
 
                     b.Property<int>("FacultiesId");
 
                     b.Property<string>("Login");
+
+                    b.Property<bool>("Moderator");
 
                     b.Property<string>("Password");
 
@@ -140,8 +140,9 @@ namespace ExamsHelper.Migrations
             modelBuilder.Entity("ExamsHelper.Models.Faculties", b =>
                 {
                     b.HasOne("ExamsHelper.Models.Univers", "Univers")
-                        .WithMany("Faculties")
-                        .HasForeignKey("UniversId");
+                        .WithMany()
+                        .HasForeignKey("UniversId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("ExamsHelper.Models.Lections", b =>
@@ -180,7 +181,7 @@ namespace ExamsHelper.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ExamsHelper.Models.Univers", "Univers")
-                        .WithMany("Users")
+                        .WithMany()
                         .HasForeignKey("UniversId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

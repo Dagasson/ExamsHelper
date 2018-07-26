@@ -32,7 +32,7 @@ namespace ExamsHelper.Services
         {
             Faculties f = new Faculties();
             f.NameOfFaculties = n;
-            f.UniverId = Uid;
+            f.UniversId = Uid;
             unitOfWork.Faculties.Create(f);
         }
 

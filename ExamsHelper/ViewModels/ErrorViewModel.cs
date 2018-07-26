@@ -1,6 +1,6 @@
 using System;
 
-namespace ExamsHelper.Models
+namespace ExamsHelper.ViewModels
 {
     public class ErrorViewModel
     {

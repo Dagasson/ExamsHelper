@@ -46,7 +46,7 @@ namespace ExamsHelper.Repository
 
         public IEnumerable<Faculties> GetFacultiesOfUniver(int idOfUniver)
         {
-            return db.Faculties.Where(c=>c.UniverId==idOfUniver);
+            return db.Faculties.Where(c=>c.UniversId==idOfUniver);
         }
 
     }
