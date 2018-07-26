@@ -43,5 +43,10 @@ namespace ExamsHelper.Repository
             if (univer != null)
                 db.Univers.Remove(univer);
         }
+
+        public Univers GetUniverByName(string NameOfUniver)
+        {
+            return db.Univers.First(c => c.NameOfUniver ==NameOfUniver );
+        }
     }
 }
