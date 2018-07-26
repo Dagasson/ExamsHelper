@@ -1,0 +1,72 @@
+﻿@model IEnumerable<ExamsHelper.Models.Questions>
+@{
+    ViewData["Title"] = "Search";
+}
+
+<html>
+
+<head>
+    <h2 style="color:white">Results Search</h2>
+</head>
+
+<body style="background-color:darkgray">
+    @functions
+    {
+    int counter = 0;
+    int returnNumber()
+    {
+        return ++counter;
+    }
+    }
+    <br />
+    <div class="well">
+        <table class="table">
+            <tr>
+                <td>
+                    Number
+                </td>
+                <td>
+                    Question
+                </td>
+                <td>
+                    Answer
+                </td>
+                <td>
+                    Subject Name
+                </td>
+                <td>
+                    Teacher
+                </td>
+                <td>
+                    Specialization
+                </td>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @returnNumber()
+                </td>
+                <td>@item.Question</td>
+                <td>
+                    <a>Show</a>
+                </td>
+                <td>
+                    @item.Subjects.NameOfSubject
+                </td>
+                <td>
+                    @item.Subjects.Teacher
+                </td>
+                <td>
+                    @item.Subjects.Speciality
+                </td>
+            </tr>
+            }
+        </table>
+    </div>
+
+</body>
+
+</html>
+

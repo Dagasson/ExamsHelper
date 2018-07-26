@@ -21,6 +21,7 @@ namespace ExamsHelper.Controllers
       UniversityService unvS;
       FacultyService fS;
       SubjectService sS;
+      QuestionService qS;
 
         public HomeController(dbcontext context)
         {
@@ -28,6 +29,7 @@ namespace ExamsHelper.Controllers
             unvS = new UniversityService(context);
             fS = new FacultyService(context);
             sS = new SubjectService(context);
+            qS = new QuestionService(context);
          }
 
         public IActionResult Index()
@@ -47,6 +49,17 @@ namespace ExamsHelper.Controllers
         public ActionResult GetFacultiesOfUnivers(int id)
         {
             return PartialView(fS.getFacultiesOfUniver(id));
+        }
+
+        public ActionResult Search(string inputSearch)
+        {
+            var search = (from q in qS.getAllQuestions()
+                          where q.Question.ToUpper().Contains(inputSearch.ToUpper()) ||
+q.Subjects.NameOfSubject.ToUpper().Contains(inputSearch.ToUpper()) ||
+q.Subjects.Teacher.ToUpper().Contains(inputSearch.ToUpper()) ||
+q.Subjects.Speciality.ToUpper().Contains(inputSearch.ToUpper())
+                          select q).ToList();
+            return View("ResultSearch",search);
         }
 
         public ActionResult GetSubjectsOfFaculty(int id)

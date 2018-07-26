@@ -32,6 +32,11 @@ namespace ExamsHelper.Services
             unitOfWork.Save();
         }
 
+        public IEnumerable<Questions> getAllQuestions()
+        {
+            return unitOfWork.Questions.GetAll();
+        }
+
         public IEnumerable<Subjects> getUserFacultySubjects(int id)
         {
             
