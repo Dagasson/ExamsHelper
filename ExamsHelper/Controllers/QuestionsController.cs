@@ -25,6 +25,20 @@ namespace ExamsHelper.Controllers
             return View();
         }
 
+        public IActionResult DeleteQuestion(int id, int sid)
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                if (uS.checkModerRole(User.Identity.Name))
+                {
+                    qS.deleteQuestion(id);
+                    return View("Index", qS.getSubjectQuestions(sid));
+                }
+            }
+            return View("Index", qS.getSubjectQuestions(sid));
+        }
+
+
         public IActionResult Create(string Question, int Subject)
         {
             qS.CreateQuest(Question,Subject);

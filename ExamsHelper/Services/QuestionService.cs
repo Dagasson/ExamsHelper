@@ -26,6 +26,12 @@ namespace ExamsHelper.Services
             unitOfWork.Save();
         }
 
+        public void deleteQuestion(int id)
+        {
+            unitOfWork.Questions.Delete(id);
+            unitOfWork.Save();
+        }
+
         public IEnumerable<Subjects> getUserFacultySubjects(int id)
         {
             

@@ -41,5 +41,18 @@ namespace ExamsHelper.Controllers
             sS.CreateSubject(nameSubj, teacher, spec, uS.getUserByLogin(User.Identity.Name).FacultiesId);
             return View("Index", sS.getSubjectsOfFaculty(uS.getUserByLogin(User.Identity.Name).FacultiesId));
         }
+
+        public IActionResult DeleteSubject(int id, int fid)
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                if (uS.checkModerRole(User.Identity.Name))
+                {
+                    sS.deleteSubject(id);
+                    return View("Index", sS.getSubjectsOfFaculty(fid));
+                }
+            }
+            return View("Index", sS.getSubjectsOfFaculty(fid));
+        }
     }
 }

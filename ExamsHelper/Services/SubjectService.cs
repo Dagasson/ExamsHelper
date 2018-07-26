@@ -26,6 +26,12 @@ namespace ExamsHelper.Services
             return unitOfWork.Faculties.GetAll().Where(f => f.Id.Equals(unitOfWork.Users.Get(id).FacultiesId));
         }
 
+        public void deleteSubject(int id)
+        {
+            unitOfWork.Subjects.Delete(id);
+            unitOfWork.Save();
+        }
+
         public void CreateSubject(string n, string t, string s, int fId)
         {
             Subjects subj = new Subjects();
