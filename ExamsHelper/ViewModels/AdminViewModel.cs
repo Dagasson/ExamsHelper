@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ExamsHelper.Models;
 
-namespace ExamsHelper.Models
+namespace ExamsHelper.ViewModels
 {
     public class AdminViewModel
     {

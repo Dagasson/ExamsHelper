@@ -1,7 +1,8 @@
-﻿@model IEnumerable<ExamsHelper.Models.AdminViewModel>
+﻿@model ExamsHelper.ViewModels.AdminViewModel
 @{
     ViewData["Title"] = "Admin";
 }
+
 
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -139,6 +140,9 @@
                                     <table class="table">
                                         <tr>
                                             <td>
+                                                Id
+                                            </td>
+                                            <td>
                                                 Login
                                             </td>
                                             <td>
@@ -154,56 +158,53 @@
                                                 Admin
                                             </td>
                                             <td>
+                                                Univer
+                                            </td>
+                                            <td>
                                                 Faculty
                                             </td>
                                             <td>
-                                                University
-                                            </td>
-                                            <td>
-                                                Admin/!Admin
-                                            </td>
-                                            <td>
-                                                Moder/!Moder
+                                                Edit
                                             </td>
                                             <td>
                                                 Delete
                                             </td>
                                         </tr>
-                                        @foreach (var item in Model)
-    {
-                                    <tr>
-                                        <td>
-                                    
-                                        </td>
-                                        <td>
-                                            Email
-                                        </td>
-                                        <td>
-                                            Password
-                                        </td>
-                                        <td>
-                                            Moderator
-                                        </td>
-                                        <td>
-                                            Admin
-                                        </td>
-                                        <td>
-                                            Faculty
-                                        </td>
-                                        <td>
-                                            University
-                                        </td>
-                                        <td>
-                                            Admin/!Admin
-                                        </td>
-                                        <td>
-                                            Moder/!Moder
-                                        </td>
-                                        <td>
-                                            Delete
-                                        </td>
-                                    </tr>
-}
+                                        @foreach (var item in Model.users)
+                                        {
+                                        <tr>
+                                            <td>
+                                                @item.Id
+                                            </td>
+                                            <td>
+                                                @item.Login
+                                            </td>
+                                            <td>
+                                                @item.Email
+                                            </td>
+                                            <td>
+                                                @item.Password
+                                            </td>
+                                            <td>
+                                                @item.Moderator
+                                            </td>
+                                            <td>
+                                                @item.Admin
+                                            </td>
+                                            <td>
+                                                @item.Univers.NameOfUniver
+                                            </td>
+                                            <td>
+                                                @item.Faculties.NameOfFaculties
+                                            </td>
+                                            <td>
+                                                Edit
+                                            </td>
+                                            <td>
+                                                Delete
+                                            </td>
+                                        </tr>
+                                    }
                                     </table>
                                 </div>
                             </div>
@@ -213,17 +214,43 @@
                                     <table class="table">
                                         <tr>
                                             <td>
+                                                Id
+                                            </td>
+                                            <td>
                                                 University Name
                                             </td>
                                             <td>
                                                 Town
                                             </td>
                                             <td>
+                                                Edit
+                                            </td>
+                                            <td>
                                                 Delete
                                             </td>
                                         </tr>
 
-                                    </table>
+                                        @foreach (var item in Model.univers)
+                                        {
+                                        <tr>
+                                            <td>
+                                                @item.Id
+                                            </td>
+                                            <td>
+                                                @item.NameOfUniver
+                                            </td>
+                                            <td>
+                                                @item.Town
+                                            </td>
+                                            <td>
+                                                Edit
+                                            </td>
+                                            <td>
+                                                Delete
+                                            </td>
+                                        </tr>
+                                                }
+                                        </table>
                                 </div>
                             </div>
                             <div class="tab-pane" id="tab_default_3">
@@ -231,17 +258,44 @@
                                     <table class="table">
                                         <tr>
                                             <td>
+                                                Id
+                                            </td>
+                                            <td>
                                                 Faculty Name
                                             </td>
                                             <td>
                                                 University
                                             </td>
                                             <td>
+                                                Edit
+                                            </td>
+                                            <td>
                                                 Delete
                                             </td>
                                         </tr>
 
-                                    </table>
+                                        @foreach (var item in Model.faculties)
+                                        {
+                                        <tr>
+                                            <td>
+                                                @item.Id
+                                            </td>
+                                            <td>
+                                                @item.NameOfFaculties
+                                            </td>
+                                            <td>
+                                                @item.Univers.NameOfUniver
+                                            </td>
+                                            <td>
+                                                Edit
+                                            </td>
+                                            <td>
+                                                Delete
+                                            </td>
+                                        </tr>
+                                                }
+                                           
+                                        </table>
                                 </div>
                             </div>
                         </div>

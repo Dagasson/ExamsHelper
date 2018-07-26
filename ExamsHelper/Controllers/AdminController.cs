@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ExamsHelper.Context;
 using ExamsHelper.Models;
+using ExamsHelper.ViewModels;
 using ExamsHelper.Services;
 using Microsoft.AspNetCore.Mvc;
 
