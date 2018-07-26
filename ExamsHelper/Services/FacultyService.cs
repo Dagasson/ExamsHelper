@@ -22,6 +22,14 @@ namespace ExamsHelper.Services
             unitOfWork.Save();
         }
 
+        public void createFaculty(string n, int Uid)
+        {
+            Faculties f = new Faculties();
+            f.NameOfFaculties = n;
+            f.UniverId = Uid;
+            unitOfWork.Faculties.Create(f);
+        }
+
         public IEnumerable<Faculties> getAllFaculties()
         {
             return unitOfWork.Faculties.GetAll();

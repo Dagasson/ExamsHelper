@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<body style="background-color:darkgray">
+    <div style="margin-top:40px;" class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h5 class="text-center">
+                            <h1>Create Faculty</h1>
+                        </h5>
+                        <form method="post">
+                            Faculty Name
+                            <input class="form-control" type="text" name="fac">
+                            <br />
+                            University
+                            <select class="form-control form-control-lg" name="uid" asp-items="ViewBag.unv"></select>
+                            <br />
+                            <input class="btn btn-warning" asp-action="Create" asp-controller="Faculties" type="submit" value="Create Faculty" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+

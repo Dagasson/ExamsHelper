@@ -21,7 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Faculties\" />
     <Folder Include="Views\Lections\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
