@@ -90,6 +90,44 @@ namespace ExamsHelper.Services
             updateUser(user);
         }
 
+        public void deleteUser(int id)
+        {
+            unitOfWork.Users.Delete(id);
+            unitOfWork.Save();
+        }
+
+        public void makeModer(int id)
+        {
+            User u = unitOfWork.Users.Get(id);
+            u.Moderator = true;
+            unitOfWork.Users.Update(u);
+            unitOfWork.Save();
+        }
+
+        public void noModer(int id)
+        {
+            User u = unitOfWork.Users.Get(id);
+            u.Moderator = false;
+            unitOfWork.Users.Update(u);
+            unitOfWork.Save();
+        }
+
+        public void makeAdmin(int id)
+        {
+            User u = unitOfWork.Users.Get(id);
+            u.Admin = true;
+            unitOfWork.Users.Update(u);
+            unitOfWork.Save();
+        }
+
+        public void noAdmin(int id)
+        {
+            User u = unitOfWork.Users.Get(id);
+            u.Moderator = false;
+            unitOfWork.Users.Update(u);
+            unitOfWork.Save();
+        }
+
         public User getUserById(int id)
         {
            return unitOfWork.Users.Get(id);
@@ -98,6 +136,11 @@ namespace ExamsHelper.Services
         public void updateUser(User user)
         {
             unitOfWork.Users.Update(user);
+        }
+
+        public IEnumerable<User> getAllUsers()
+        {
+            return unitOfWork.Users.GetAll();
         }
 
         public void createUser(User user)
