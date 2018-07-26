@@ -38,8 +38,18 @@ namespace ExamsHelper.Controllers
 
         public IActionResult Create(string nameSubj, string teacher, string spec)
         {
+            if(nameSubj==null) return RedirectToAction("CreateErrorReturn", new { errMsg = "Введите название предмета" });
+            if(teacher==null) return RedirectToAction("CreateErrorReturn", new { errMsg = "Введите преподавателя" });
+            if(spec==null) return RedirectToAction("CreateErrorReturn", new { errMsg = "Введите специальность" });
             sS.CreateSubject(nameSubj, teacher, spec, uS.getUserByLogin(User.Identity.Name).FacultiesId);
             return View("Index", sS.getSubjectsOfFaculty(uS.getUserByLogin(User.Identity.Name).FacultiesId));
+        }
+
+        public IActionResult CreateErrorReturn(string errMsg)
+        {
+            ModelState.AddModelError("", errMsg);
+         
+            return View("Create");
         }
 
         public IActionResult DeleteSubject(int id, int fid)

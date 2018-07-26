@@ -29,11 +29,20 @@ namespace ExamsHelper.Controllers
         {
             if (uS.checkAdmRole(User.Identity.Name))
             {
+                if(univer==null) return RedirectToAction("CreateErrorReturn", new { errMsg = "Введите университет" });
+                if(town==null) return RedirectToAction("CreateErrorReturn", new { errMsg = "Введите название города" });
                 unvS.createUniver(univer, town);
                 unvS.Save();
                 return View("Create");
             }
             return RedirectToAction("Index", "Home");
+        }
+
+        public IActionResult CreateErrorReturn(string errMsg)
+        {
+            ModelState.AddModelError("", errMsg);
+         
+            return View("Create");
         }
 
         public IActionResult CreateUniversity()

@@ -41,9 +41,26 @@ namespace ExamsHelper.Controllers
 
         public IActionResult Create(string Question, int Subject)
         {
-            qS.CreateQuest(Question,Subject);
-            return View("Index",qS.getSubjectQuestions(Subject));
+            
+            if (Question != null)
+            {
+                qS.CreateQuest(Question, Subject);
+                return View("Index", qS.getSubjectQuestions(Subject));
+            }
+            else
+            {
+                return RedirectToAction("CreateErrorReturn", new { errMsg = "Введите вопрос" });
+            }
         }
+
+        public IActionResult CreateErrorReturn(string errMsg)
+        {
+            ModelState.AddModelError("", errMsg);
+            ViewBag.subj = new SelectList(qS.getUserFacultySubjects(uS.getUserByLogin(User.Identity.Name).Id), "Id", "NameOfSubject");
+
+            return View("Create");
+        }
+
 
         public IActionResult CreateQuestion()
         {
