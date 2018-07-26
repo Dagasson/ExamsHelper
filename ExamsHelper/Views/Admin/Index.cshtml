@@ -164,6 +164,12 @@
                                                 Faculty
                                             </td>
                                             <td>
+                                                Admin/!Admin
+                                            </td>
+                                            <td>
+                                                Moder/!Moder
+                                            </td>
+                                            <td>
                                                 Edit
                                             </td>
                                             <td>
@@ -198,10 +204,16 @@
                                                 @item.Faculties.NameOfFaculties
                                             </td>
                                             <td>
+                                                <a href="~/Admin/Admin/?id=@item.Id">Yes</a> / <a href="~/Admin/NoAdmin/?id=@item.Id">No </a>
+                                            </td>
+                                            <td>
+                                                <a href="~/Admin/Moder/?id=@item.Id">Yes</a> / <a href="~/Admin/NoModer/?id=@item.Id">No </a>
+                                            </td>
+                                            <td>
                                                 Edit
                                             </td>
                                             <td>
-                                                Delete
+                                                <a href="~/Admin/DeleteUser/?id=@item.Id"> Delete</a>
                                             </td>
                                         </tr>
                                     }
@@ -223,7 +235,7 @@
                                                 Town
                                             </td>
                                             <td>
-                                                Edit
+                                                Edit 
                                             </td>
                                             <td>
                                                 Delete
@@ -246,7 +258,7 @@
                                                 Edit
                                             </td>
                                             <td>
-                                                Delete
+                                                <a  href="~/Admin/DeleteUniversity/?id=@item.Id"> Delete</a>
                                             </td>
                                         </tr>
                                                 }
@@ -290,7 +302,7 @@
                                                 Edit
                                             </td>
                                             <td>
-                                                Delete
+                                                <a  href="~/Admin/DeleteFaculty/?id=@item.Id"> Delete</a>
                                             </td>
                                         </tr>
                                                 }

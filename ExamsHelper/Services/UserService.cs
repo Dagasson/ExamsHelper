@@ -123,7 +123,7 @@ namespace ExamsHelper.Services
         public void noAdmin(int id)
         {
             User u = unitOfWork.Users.Get(id);
-            u.Moderator = false;
+            u.Admin = false;
             unitOfWork.Users.Update(u);
             unitOfWork.Save();
         }
