@@ -37,12 +37,23 @@
                     <tr>
                         <td>Moderator</td>
                         @if (Model.Moderator)
-    {
-                    <td>   Yes </td>
+        {
+                <td>   Yes </td>
 }
 else
 {
-                    <td>  No </td>
+                <td>  No </td>
+}
+                    </tr>
+                    <tr>
+                        <td>Admin</td>
+                        @if (Model.Admin)
+        {
+                <td>   Yes </td>
+}
+else
+{
+                <td>  No </td>
 }
                     </tr>
                     <tr>
