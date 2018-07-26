@@ -25,11 +25,15 @@
             <div class="navbar-collapse collapse">
 
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Exams Helper</a>
+                <a asp-area="" asp-controller="Home" asp-action="About" class="navbar-brand"> About</a>
                 @if (User.Identity.IsAuthenticated)
     {
-            <a asp-area="" asp-controller="Questions" asp-action="CreateQuestion" class="navbar-brand">Create Question</a>
-            <a asp-area="" asp-controller="Subjects" asp-action="CreateSubject" class="navbar-brand">Create Subject</a>
-            <a asp-area="" asp-controller="Home" asp-action="AdmPassword" class="navbar-brand"> Admin Panel</a>
+            <a asp-area="" asp-controller="Questions" asp-action="CreateQuestion" class="navbar-brand">Question</a>
+            <a asp-area="" asp-controller="Subjects" asp-action="CreateSubject" class="navbar-brand">Subject</a>
+            <a asp-area="" asp-controller="Univers" asp-action="CreateUniversity" class="navbar-brand">University</a>
+            <a asp-area="" asp-controller="Faculties" asp-action="CreateFaculty" class="navbar-brand">Faculty</a>
+            <a asp-area="" asp-controller="Home" asp-action="AdmPassword" class="navbar-brand"> Admin</a>
+
             <div class="col-sm-3 col-md-3">
                 <form class="navbar-form" navbar-right" role="search">
                     <div class="input-group">
@@ -52,7 +56,6 @@
 else
 {
             <a asp-area="" asp-controller="Home" asp-action="SignIn" class="navbar-brand">Sign In</a>
-
 }
 
             </div>
