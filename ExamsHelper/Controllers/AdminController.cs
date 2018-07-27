@@ -7,7 +7,8 @@ using ExamsHelper.Models;
 using ExamsHelper.ViewModels;
 using ExamsHelper.Services;
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace ExamsHelper.Controllers
 {
@@ -16,13 +17,14 @@ namespace ExamsHelper.Controllers
         UserService uS;
         FacultyService fS;
         UniversityService unvS;
-      
+        dbcontext _context;
 
         public AdminController(dbcontext context)
         {
             uS = new UserService(context);
             fS = new FacultyService(context);
             unvS = new UniversityService(context);
+            _context = context;
         }
 
         public IActionResult DeleteUser(int id)
@@ -91,7 +93,7 @@ namespace ExamsHelper.Controllers
             AdminViewModel views = new AdminViewModel();
             views.users = uS.getAllUsers().ToList();
             views.univers = unvS.getAllUnivers().ToList();
-            views.faculties = fS.getAllFaculties().ToList();    
+            views.faculties = fS.getAllFaculties().ToList();
             return View("Index", views);
         }
 
@@ -103,9 +105,62 @@ namespace ExamsHelper.Controllers
                 views.users = uS.getAllUsers().ToList();
                 views.univers = unvS.getAllUnivers().ToList();
                 views.faculties = fS.getAllFaculties().ToList();
-                return View("Index",views);
+                return View("Index", views);
             }
             return RedirectToAction("Index", "Home");
         }
+
+        // GET: Users1/Edit/5
+        public async Task<IActionResult> EditUser(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var user = await _context.Users.SingleOrDefaultAsync(m => m.Id == id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            ViewData["FacultiesId"] = new SelectList(_context.Faculties, "Id", "Id", user.FacultiesId);
+            ViewData["UniversId"] = new SelectList(_context.Univers, "Id", "Id", user.UniversId);
+            return View(user);
+        }
+
+        // POST: Users1/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditUser(int id, [Bind("Id,Login,Email,Password,Moderator,Admin,FacultiesId,UniversId")] User user)
+        {
+            if (id != user.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(user);
+                    await _context.SaveChangesAsync();
+
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                        throw;
+                 }
+                return RedirectToAction(nameof(Index));
+            }
+            ViewData["FacultiesId"] = new SelectList(_context.Faculties, "Id", "Id", user.FacultiesId);
+            ViewData["UniversId"] = new SelectList(_context.Univers, "Id", "Id", user.UniversId);
+            return View(user);
+        }
+
+
+
+
     }
 }

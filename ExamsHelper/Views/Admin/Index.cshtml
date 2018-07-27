@@ -210,7 +210,7 @@
                                                 <a href="~/Admin/Moder/?id=@item.Id">Yes</a> / <a href="~/Admin/NoModer/?id=@item.Id">No </a>
                                             </td>
                                             <td>
-                                                Edit
+                                                <a  asp-action="EditUser" asp-route-id="@item.Id"> Edit</a>
                                             </td>
                                             <td>
                                                 <a href="~/Admin/DeleteUser/?id=@item.Id"> Delete</a>
