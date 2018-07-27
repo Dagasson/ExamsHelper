@@ -33,7 +33,7 @@ namespace ExamsHelper.Controllers
                 if(town==null) return RedirectToAction("CreateErrorReturn", new { errMsg = "Введите название города" });
                 unvS.createUniver(univer, town);
                 unvS.Save();
-                return View("Create");
+                return RedirectToAction("CreateErrorReturn", new { errMsg = "Университет создан" });
             }
             return RedirectToAction("Index", "Home");
         }

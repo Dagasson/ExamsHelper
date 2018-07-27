@@ -30,6 +30,8 @@ namespace ExamsHelper.Controllers
                 {
                     fS.createFaculty(fac, uid);
                     fS.Save();
+
+                    return RedirectToAction("CreateErrorReturn", new { errMsg = "Факультет создан." });
                 }
                 else
                 {
