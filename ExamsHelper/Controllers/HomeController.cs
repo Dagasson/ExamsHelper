@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ExamsHelper.Models;
+using ExamsHelper.ViewModels;
 using ExamsHelper.Context;
 using ExamsHelper.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -164,7 +165,7 @@ q.Subjects.Speciality.ToUpper().Contains(inputSearch.ToUpper())
         [HttpGet]
         public IActionResult GetFaculties(Int32 Id)
         {
-            IEnumerable<Faculties> Faculties = fS.getAllFaculties().Where(t => t.UniverId == Id);
+            IEnumerable<Faculties> Faculties = fS.getAllFaculties().Where(t => t.UniversId == Id);
             Univers Uni = unvS.getAllUnivers().Where(t => t.Id == Id).First();
             string qwe = Uni.NameOfUniver;
             ViewBag.ChoisenUniver = qwe;

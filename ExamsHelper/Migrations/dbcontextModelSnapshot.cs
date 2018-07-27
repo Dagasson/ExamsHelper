@@ -27,9 +27,7 @@ namespace ExamsHelper.Migrations
 
                     b.Property<string>("NameOfFaculties");
 
-                    b.Property<int>("UniverId");
-
-                    b.Property<int?>("UniversId");
+                    b.Property<int>("UniversId");
 
                     b.HasKey("Id");
 
@@ -141,8 +139,9 @@ namespace ExamsHelper.Migrations
             modelBuilder.Entity("ExamsHelper.Models.Faculties", b =>
                 {
                     b.HasOne("ExamsHelper.Models.Univers", "Univers")
-                        .WithMany("Faculties")
-                        .HasForeignKey("UniversId");
+                        .WithMany()
+                        .HasForeignKey("UniversId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("ExamsHelper.Models.Lections", b =>
@@ -181,7 +180,7 @@ namespace ExamsHelper.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ExamsHelper.Models.Univers", "Univers")
-                        .WithMany("Users")
+                        .WithMany()
                         .HasForeignKey("UniversId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

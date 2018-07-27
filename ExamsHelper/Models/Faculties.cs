@@ -13,7 +13,7 @@ namespace ExamsHelper.Models
 
         public string NameOfFaculties { get; set; }
 
-        public Int32 UniverId { get; set; }
+        public Int32 UniversId { get; set; }
         public Univers Univers { get; set; }
 
         public List<User> Users { get; set; }

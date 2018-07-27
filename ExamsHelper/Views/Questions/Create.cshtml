@@ -14,10 +14,12 @@
                             <h1>Create Question</h1>
                         </h5>
                         <form method="post">
-                            <input  class="form-control" type="text" name="Question">
+                            <input class="form-control" type="text" name="Question">
                             <br />
                             <select class="form-control form-control-lg" name="Subject" asp-items="ViewBag.subj" id="univer"></select>
                             <br />
+                            <div asp-validation-summary="ModelOnly"></div>
+                             
                             <input class="btn btn-warning" asp-action="Create" asp-controller="Questions" type="submit" value="Create Question" />
                         </form>
                     </div>

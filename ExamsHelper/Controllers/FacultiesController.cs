@@ -26,10 +26,23 @@ namespace ExamsHelper.Controllers
         {
             if (uS.checkAdmRole(User.Identity.Name))
             {
-                fS.createFaculty(fac, uid);
-                fS.Save();
+                if (fac != null)
+                {
+                    fS.createFaculty(fac, uid);
+                    fS.Save();
+                }
+                else
+                {
+                   return RedirectToAction("CreateErrorReturn", new { errMsg = "Введите название факультета" });
+                }
             }
             return View();
+        }
+        public IActionResult CreateErrorReturn(string errMsg)
+        {
+            ViewBag.unv = new SelectList(unvS.getAllUnivers(), "Id", "NameOfUniver");
+            ModelState.AddModelError("", errMsg);
+            return View("Create");
         }
 
         public IActionResult CreateFaculty()
