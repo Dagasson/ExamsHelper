@@ -110,7 +110,7 @@ namespace ExamsHelper.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        // GET: Users1/Edit/5
+        
         public async Task<IActionResult> EditUser(int? id)
         {
             if (id == null)
@@ -128,7 +128,7 @@ namespace ExamsHelper.Controllers
             return View(user);
         }
 
-        // POST: Users1/Edit/5
+       
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -160,6 +160,97 @@ namespace ExamsHelper.Controllers
         }
 
 
+        public async Task<IActionResult> EditUniver(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var univer = await _context.Univers.SingleOrDefaultAsync(m => m.Id == id);
+            if (univer == null)
+            {
+                return NotFound();
+            }
+            return View(univer);
+        }
+
+
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditUniver(int id, [Bind("Id,NameOfUniver, Town")] Univers univer)
+        {
+            if (id != univer.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(univer);
+                    await _context.SaveChangesAsync();
+
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    throw;
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(univer);
+        }
+
+
+        public async Task<IActionResult> EditFaculty(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var faculty = await _context.Faculties.SingleOrDefaultAsync(m => m.Id == id);
+            if (faculty == null)
+            {
+                return NotFound();
+            }
+
+            ViewData["UniversId"] = new SelectList(_context.Univers, "Id", "Id", faculty.UniversId);
+            return View(faculty);
+        }
+
+
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditFaculty(int id, [Bind("Id,NameOfFaculties, UniversId")] Faculties faculty)
+        {
+            if (id != faculty.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(faculty);
+                    await _context.SaveChangesAsync();
+
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    throw;
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            ViewData["UniversId"] = new SelectList(_context.Univers, "Id", "Id", faculty.UniversId);
+            return View(faculty);
+        }
 
 
     }
