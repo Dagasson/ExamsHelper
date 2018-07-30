@@ -26,15 +26,13 @@ namespace ExamsHelper
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            string connection = Configuration.GetConnectionString("DefaultConnection");
             
+            string connection = Configuration.GetConnectionString("LocaldbConnection");
+            string azureconn = Configuration.GetConnectionString("SQLServerConnection");
 
-            if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
-                services.AddDbContext<dbcontext>(options =>
-                        options.UseSqlServer(Configuration.GetConnectionString("SqlServerConnection")));
-            else
-                services.AddDbContext<dbcontext>(options =>
-                options.UseSqlServer(connection));
+
+            services.AddDbContext<dbcontext>(options =>options.UseSqlServer(azureconn));
+            //services.AddDbContext<dbcontext>(options => options.UseSqlServer(connection));
 
             services.BuildServiceProvider().GetService<dbcontext>().Database.Migrate();
 

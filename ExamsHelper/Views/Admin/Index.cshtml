@@ -210,7 +210,7 @@
                                                 <a href="~/Admin/Moder/?id=@item.Id">Yes</a> / <a href="~/Admin/NoModer/?id=@item.Id">No </a>
                                             </td>
                                             <td>
-                                                Edit
+                                                <a  asp-action="EditUser" asp-route-id="@item.Id"> Edit</a>
                                             </td>
                                             <td>
                                                 <a href="~/Admin/DeleteUser/?id=@item.Id"> Delete</a>
@@ -255,7 +255,7 @@
                                                 @item.Town
                                             </td>
                                             <td>
-                                                Edit
+                                                <a asp-action="EditUniver" asp-route-id="@item.Id"> Edit</a>
                                             </td>
                                             <td>
                                                 <a  href="~/Admin/DeleteUniversity/?id=@item.Id"> Delete</a>
@@ -299,7 +299,7 @@
                                                 @item.Univers.NameOfUniver
                                             </td>
                                             <td>
-                                                Edit
+                                                <a asp-action="EditFaculty" asp-route-id="@item.Id"> Edit</a>
                                             </td>
                                             <td>
                                                 <a  href="~/Admin/DeleteFaculty/?id=@item.Id"> Delete</a>

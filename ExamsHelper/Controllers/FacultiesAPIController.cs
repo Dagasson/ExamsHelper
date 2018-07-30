@@ -26,9 +26,17 @@ namespace ExamsHelper.Controllers
         }
         // GET: api/<controller>
         [HttpGet]
-        public JsonResult Get()
+        public JsonResult Get(String Univer)
         {
-            return Json(fS.getAllFaculties());
+            if (Univer != null)
+            {
+                Univers q=uS.getUniverByName(Univer);
+                return Json(fS.getFacultiesOfUniver(q.Id));
+            }
+            else
+            {
+                return Json(fS.getAllFaculties());
+            }
         }
 
         // GET api/<controller>/5
