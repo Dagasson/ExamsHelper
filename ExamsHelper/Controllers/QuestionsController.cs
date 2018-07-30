@@ -25,6 +25,23 @@ namespace ExamsHelper.Controllers
             return View();
         }
 
+        public IActionResult ShowAnswer(int id)
+        {
+            return View("Answer", qS.getQuestionById(id));
+        }
+
+        public IActionResult SaveAnswer(string content,int id, int sid)
+        {
+            if(User.Identity.IsAuthenticated)
+            {
+                if(uS.checkModerRole(uS.getUserByLogin(User.Identity.Name).Login))
+                {
+                    qS.saveAnswer(content, id);
+                }
+            }    
+            return View("Index", qS.getSubjectQuestions(sid));
+        }
+
         public IActionResult DeleteQuestion(int id, int sid)
         {
             if (User.Identity.IsAuthenticated)

@@ -1,0 +1,31 @@
+﻿@model Questions
+@{
+    ViewData["Title"] = "Answer";
+}
+
+<html>
+<head>
+    <h2> Question : @Model.Question</h2>
+    <meta charset="utf-8">
+    <title>Answer Editor</title>
+    <script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
+</head>
+<body style="background-color:darkgray">
+    <form method="post">
+        <input type="hidden" name="id" value="@Model.Id" />
+        <input type="hidden" name="sid" value="@Model.SubjectsId" />
+        <textarea name="content" id="editor">
+@Model.Answer
+    </textarea>
+        <input asp-controller="Questions" asp-action="SaveAnswer" type="submit" value="Save" class="btn btn-lg btn-success btn-block">
+    </form>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+</body>
+</html>
+

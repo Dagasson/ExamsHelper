@@ -32,6 +32,20 @@ namespace ExamsHelper.Services
             unitOfWork.Save();
         }
 
+
+        public void saveAnswer(string content, int id)
+        {
+            Questions q = unitOfWork.Questions.Get(id);
+            q.Answer = content;
+            unitOfWork.Questions.Update(q);
+            unitOfWork.Save();
+        }
+
+        public Questions getQuestionById(int id)
+        {
+            return unitOfWork.Questions.Get(id);
+        }
+
         public IEnumerable<Questions> getAllQuestions()
         {
             return unitOfWork.Questions.GetAll();
