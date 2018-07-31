@@ -110,7 +110,11 @@ namespace ExamsHelper.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        
+        public ActionResult GetFacultiesOfUnivers(int id)
+        {
+            return PartialView(fS.getFacultiesOfUniver(id));
+        }
+
         public async Task<IActionResult> EditUser(int? id)
         {
             if (id == null)
@@ -123,8 +127,14 @@ namespace ExamsHelper.Controllers
             {
                 return NotFound();
             }
-            ViewData["FacultiesId"] = new SelectList(_context.Faculties, "Id", "Id", user.FacultiesId);
-            ViewData["UniversId"] = new SelectList(_context.Univers, "Id", "Id", user.UniversId);
+
+            IEnumerable<Univers> univers = new List<Univers> { };
+            univers = unvS.getAllUnivers();
+            ViewBag.univers = new SelectList(univers, "Id", "NameOfUniver", user.UniversId);
+
+            IEnumerable<Faculties> faculties = new List<Faculties> { };
+            faculties = fS.getFacultiesOfUniver(user.UniversId);
+            ViewBag.faculties = new SelectList(faculties, "Id", "NameOfFaculties");
             return View(user);
         }
 
@@ -133,13 +143,15 @@ namespace ExamsHelper.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditUser(int id, [Bind("Id,Login,Email,Password,Moderator,Admin,FacultiesId,UniversId")] User user)
+        public async Task<IActionResult> EditUser(int id, [Bind("Id,Login,Email,Password,Moderator,Admin")] User user, int faculty, int univer )
         {
             if (id != user.Id)
             {
                 return NotFound();
             }
 
+            user.UniversId = univer;
+            user.FacultiesId = faculty;
             if (ModelState.IsValid)
             {
                 try

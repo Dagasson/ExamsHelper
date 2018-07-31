@@ -1,0 +1,7 @@
+﻿@model IEnumerable<ExamsHelper.Models.Faculties>
+<select class="form-control" id="facultyid" name="faculty">
+    @foreach (var item in Model)
+    {
+        <option value="@item.Id">@item.NameOfFaculties</option>
+    }
+</select>
