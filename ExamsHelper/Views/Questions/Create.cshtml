@@ -3,7 +3,10 @@
     ViewData["Title"] = "Create";
 }
 
-
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/style.css" />
+</head>
 <body style="background-color:darkgray">
     <div style="margin-top:40px;" class="container">
         <div class="row">
@@ -19,7 +22,7 @@
                             <select class="form-control form-control-lg" name="Subject" asp-items="ViewBag.subj" id="univer"></select>
                             <br />
                             <div asp-validation-summary="ModelOnly"></div>
-                             
+
                             <input class="btn btn-warning" asp-action="Create" asp-controller="Questions" type="submit" value="Create Question" />
                         </form>
                     </div>
@@ -27,5 +30,6 @@
             </div>
         </div>
     </div>
-
 </body>
+</html>
+

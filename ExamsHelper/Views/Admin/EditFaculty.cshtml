@@ -4,33 +4,42 @@
     ViewData["Title"] = "EditFaculty";
 }
 
-<h2>EditFaculty</h2>
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/style.css" />
+</head>
+<body>
+    <h2>EditFaculty</h2>
 
-<h4>Faculties</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="EditFaculty">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="NameOfFaculties" class="control-label"></label>
-                <input asp-for="NameOfFaculties" class="form-control" />
-                <span asp-validation-for="NameOfFaculties" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UniversId" class="control-label"></label>
-                <select asp-for="UniversId" class="form-control" asp-items="ViewBag.UniversId"></select>
-                <span asp-validation-for="UniversId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </form>
+    <h4>Faculties</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="EditFaculty">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label asp-for="NameOfFaculties" class="control-label"></label>
+                    <input asp-for="NameOfFaculties" class="form-control" />
+                    <span asp-validation-for="NameOfFaculties" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="UniversId" class="control-label"></label>
+                    <select asp-for="UniversId" class="form-control" asp-items="ViewBag.UniversId"></select>
+                    <span asp-validation-for="UniversId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+
+</body>
+</html>
 
