@@ -158,5 +158,16 @@ namespace ExamsHelper.Services
             return false;
         }
 
+        public void deleteUserbyuniversid(int id)
+        {
+
+            IEnumerable<User> usersfordelete = unitOfWork.Users.GetByUniversId(id);
+            foreach (User user in usersfordelete)
+            {
+                unitOfWork.Users.Delete(user.Id);
+                
+            }
+            unitOfWork.Save();
+        }
     }
 }

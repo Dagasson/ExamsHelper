@@ -79,7 +79,9 @@ namespace ExamsHelper.Controllers
 
         public IActionResult DeleteUniversity(int id)
         {
+            uS.deleteUserbyuniversid(id);
             unvS.deleteUniver(id);
+
             AdminViewModel views = new AdminViewModel();
             views.users = uS.getAllUsers().ToList();
             views.univers = unvS.getAllUnivers().ToList();
