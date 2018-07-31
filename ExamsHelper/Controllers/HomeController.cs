@@ -33,6 +33,11 @@ namespace ExamsHelper.Controllers
             qS = new QuestionService(context);
          }
 
+        public IActionResult About()
+        {
+            return View();
+        }
+
         public IActionResult Index()
         {
             int defaultUniversId = 1;
