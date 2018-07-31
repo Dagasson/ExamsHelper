@@ -17,6 +17,18 @@ namespace ExamsHelper.Services
             unitOfWork = new UnitOfWork(context);
         }
 
+        public int getFacultyIdByName(string n)
+        {
+            foreach(Faculties f in unitOfWork.Faculties.GetAll())
+            {
+                if(f.NameOfFaculties.Equals(n))
+                {
+                    return f.Id;
+                }
+            }
+            return 0;
+        }
+
         public void Save()
         {
             unitOfWork.Save();
