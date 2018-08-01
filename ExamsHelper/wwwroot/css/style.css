@@ -10,13 +10,49 @@
 body {
 	--main-font: 'Roboto', sans-serif;
 	--header-font: 'Anton', sans-serif;
-	--main-color: #f5f5f5;
-	--light-color: #fff;
+	--main-color: #2e6da4;
+	--light-color: #337ab7;
 	--white: #fff;
 	--black: #222;
+	--gray: #888;
+	--dark-white: #f5f5f5;
+	--shadow: 0px 0px 6px 2px var(--dark-white);
+	--space: 15px;
+	--screw: 4px;
+	background-color: var(--white) !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: var(--main-font);
 	text-transform: uppercase;
+	margin-top: 0;
+}
+
+.logo {
+	color: var(--white);
+}
+
+nav .container .links {
+	float: right;
+}
+
+.shadow {
+	box-shadow: var(--shadow);
+}
+
+form.controlled > * {
+	margin-bottom: var(--space);
+}
+
+.spaced-bottom {
+	margin-bottom: var(--space);
+}
+
+button,
+input[type='submit'],
+input[type='button'] {
+	background-color: var(--light-color) !important;
+	border-color: var(--main-color) !important;
+	color: var(--white) !important;
+	border-radius: var(--screw);
 }
