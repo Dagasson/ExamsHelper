@@ -11,26 +11,21 @@ using Microsoft.AspNetCore.Mvc;
 namespace ExamsHelper.Controllers
 {
     [Route("api/[controller]")]
-    public class SubjectsAPIController : Controller
+    public class AnswerAPIController : Controller
     {
-        SubjectService sS;
-        FacultyService fS;
         QuestionService qS;
 
-        public  SubjectsAPIController(dbcontext context)
+        public AnswerAPIController(dbcontext context)
         {
-            fS = new FacultyService(context);
-            sS = new SubjectService(context);
             qS = new QuestionService(context);
         }
+
         // GET: api/<controller>
         [HttpGet]
-        public JsonResult GetS(int id)
+        public JsonResult GetAQ(int id)
         {
-           return Json(sS.getSubjectsOfFaculty(id));
+            return Json(qS.getQuestionById(id));
         }
-
-
 
         // POST api/<controller>
         [HttpPost]

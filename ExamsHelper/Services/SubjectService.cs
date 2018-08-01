@@ -19,7 +19,7 @@ namespace ExamsHelper.Services
 
         public IEnumerable<Subjects> getSubjectsOfFaculty(int idOfFaculty)
         {
-            return unitOfWork.Subjects.GetSubjectsOfFaculty(idOfFaculty);
+            return unitOfWork.Subjects.GetAll().Where(s => s.FacultiesId.Equals(idOfFaculty));
         }
         public IEnumerable<Faculties> getUserUniversityFaculties(int id)
         {

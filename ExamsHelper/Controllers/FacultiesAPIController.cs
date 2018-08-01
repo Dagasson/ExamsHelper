@@ -57,7 +57,6 @@ namespace ExamsHelper.Controllers
             Faculties choisenFaculty = facultiesOfUniver.First(c => c.NameOfFaculties == NameOfFaculty);
 
             return Json(sS.getSubjectsOfFaculty(choisenFaculty.Id));
-
         }
 
         // PUT api/<controller>/5
