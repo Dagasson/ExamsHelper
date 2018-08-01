@@ -1,2 +1,22 @@
-﻿body {
+﻿@import url('https://fonts.googleapis.com/css?family=Anton|Roboto');
+
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+
+body {
+	--main-font: 'Roboto', sans-serif;
+	--header-font: 'Anton', sans-serif;
+	--main-color: #f5f5f5;
+	--light-color: #fff;
+	--white: #fff;
+	--black: #222;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: var(--main-font);
+	text-transform: uppercase;
 }
