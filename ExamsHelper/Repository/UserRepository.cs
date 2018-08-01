@@ -43,5 +43,11 @@ namespace ExamsHelper.Repository
             if (user != null)
                 db.Users.Remove(user);
         }
+
+        public IEnumerable<User> GetByUniversId(int id)
+        {
+            return db.Users.Where(q=>q.UniversId==id);
+        }
+
     }
 }
