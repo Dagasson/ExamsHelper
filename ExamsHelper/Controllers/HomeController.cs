@@ -40,11 +40,11 @@ namespace ExamsHelper.Controllers
 
         public IActionResult Index()
         {
-            int defaultUniversId = 1;
+            int defaultUniversId;
             IEnumerable<Univers> univers = new List<Univers> { };
             univers = unvS.getAllUnivers();
+            defaultUniversId = univers.First().Id;
             ViewBag.univers = new SelectList(univers, "Id", "NameOfUniver", defaultUniversId);
-
             IEnumerable<Faculties> faculties = new List<Faculties> { };
             faculties = fS.getFacultiesOfUniver(defaultUniversId);
             ViewBag.faculties = new SelectList(faculties, "Id", "NameOfFaculties");
@@ -74,9 +74,10 @@ q.Subjects.Speciality.ToUpper().Contains(inputSearch.ToUpper())
         }
         public IActionResult Reg()
         {
-            int defaultUniversId = 1;
+            int defaultUniversId;
             IEnumerable<Univers> univers = new List<Univers> { };
             univers = unvS.getAllUnivers();
+            defaultUniversId = univers.First().Id;
             ViewBag.univers = new SelectList(univers, "Id", "NameOfUniver", defaultUniversId);
 
             IEnumerable<Faculties> faculties = new List<Faculties> { };
@@ -87,9 +88,10 @@ q.Subjects.Speciality.ToUpper().Contains(inputSearch.ToUpper())
 
         public IActionResult registrationErrorReturn(string errMsg)
         {
-            int defaultUniversId = 1;
+            int defaultUniversId;
             IEnumerable<Univers> univers = new List<Univers> { };
             univers = unvS.getAllUnivers();
+            defaultUniversId = univers.First().Id;
             ViewBag.univers = new SelectList(univers, "Id", "NameOfUniver", defaultUniversId);
 
             IEnumerable<Faculties> faculties = new List<Faculties> { };
