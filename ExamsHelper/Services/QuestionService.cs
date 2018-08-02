@@ -57,9 +57,9 @@ namespace ExamsHelper.Services
             return unitOfWork.Subjects.GetAll().Where(s => s.FacultiesId.Equals(unitOfWork.Users.Get(id).FacultiesId));
         }
 
-        public IEnumerable<Questions> getSubjectQuestions(int id)
+        public IEnumerable<Questions> getSubjectQuestions(int idS)
         {
-           return unitOfWork.Questions.GetAll().Where(q => q.SubjectsId.Equals(id));
+           return unitOfWork.Questions.GetAll().Where(q => q.SubjectsId.Equals(idS));
         }
 
         public void Save()

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ExamsHelper.Context;
+using ExamsHelper.Models;
 using ExamsHelper.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,9 +23,9 @@ namespace ExamsHelper.Controllers
 
         // GET: api/<controller>
         [HttpGet]
-        public JsonResult GetQ(int id)
+        public IEnumerable<Questions> GetQ(int id)
         {
-            return Json(qS.getSubjectQuestions(id));
+            return qS.getSubjectQuestions(id);
         }
 
         // POST api/<controller>
