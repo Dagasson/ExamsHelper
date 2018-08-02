@@ -22,7 +22,7 @@ namespace ExamsHelper.Controllers
         }
 
         // GET: api/<controller>
-        [HttpGet("{id}")]
+        [HttpGet]
         public JsonResult GetQ(int id)
         {
             return Json(qS.getSubjectQuestions(id));
