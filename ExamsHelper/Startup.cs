@@ -32,7 +32,7 @@ namespace ExamsHelper
 
 
             services.AddDbContext<dbcontext>(options =>options.UseSqlServer(azureconn));
-            //services.AddDbContext<dbcontext>(options => options.UseSqlServer(connection));
+         //   services.AddDbContext<dbcontext>(options => options.UseSqlServer(connection));
 
             services.BuildServiceProvider().GetService<dbcontext>().Database.Migrate();
 
