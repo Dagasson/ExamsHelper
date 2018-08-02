@@ -49,5 +49,10 @@ namespace ExamsHelper.Repository
             return db.Users.Where(q=>q.UniversId==id);
         }
 
+        public IEnumerable<User> GetByFacultiesId(int id)
+        {
+            return db.Users.Where(q => q.FacultiesId == id);
+        }
+
     }
 }

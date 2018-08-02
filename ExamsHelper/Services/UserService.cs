@@ -160,12 +160,20 @@ namespace ExamsHelper.Services
 
         public void deleteUserbyuniversid(int id)
         {
-
             IEnumerable<User> usersfordelete = unitOfWork.Users.GetByUniversId(id);
             foreach (User user in usersfordelete)
             {
                 unitOfWork.Users.Delete(user.Id);
-                
+            }
+            unitOfWork.Save();
+        }
+
+        public void deleteUserbyfacultiesid(int id)
+        {
+            IEnumerable<User> usersfordelete = unitOfWork.Users.GetByFacultiesId(id);
+            foreach (User user in usersfordelete)
+            {
+                unitOfWork.Users.Delete(user.Id);
             }
             unitOfWork.Save();
         }

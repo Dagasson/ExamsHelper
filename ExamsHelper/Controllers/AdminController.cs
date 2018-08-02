@@ -91,6 +91,7 @@ namespace ExamsHelper.Controllers
 
         public IActionResult DeleteFaculty(int id)
         {
+            uS.deleteUserbyfacultiesid(id);
             fS.deleteFaculty(id);
             AdminViewModel views = new AdminViewModel();
             views.users = uS.getAllUsers().ToList();

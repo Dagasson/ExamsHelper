@@ -23,9 +23,9 @@ namespace ExamsHelper.Controllers
 
         // GET: api/<controller>
         [HttpGet]
-        public IEnumerable<Questions> GetQ(int id)
+        public JsonResult GetQ(int id)
         {
-            return qS.getSubjectQuestions(id);
+            return Json(qS.getSubjectQuestions(id));
         }
 
         // POST api/<controller>

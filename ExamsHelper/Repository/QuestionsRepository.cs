@@ -19,7 +19,12 @@ namespace ExamsHelper.Repository
 
         public IEnumerable<Questions> GetAll()
         {
-            return db.Questions.Include(q =>q.Subjects);
+            return db.Questions;
+        }
+
+        public IEnumerable<Questions> GetAllWithSubj()
+        {
+            return db.Questions.Include(q=>q.Subjects);
         }
 
         public Questions Get(int id)
