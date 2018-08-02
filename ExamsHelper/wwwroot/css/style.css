@@ -8,51 +8,72 @@
 }
 
 body {
-	--main-font: 'Roboto', sans-serif;
-	--header-font: 'Anton', sans-serif;
-	--main-color: #2e6da4;
-	--light-color: #337ab7;
-	--white: #fff;
-	--black: #222;
-	--gray: #888;
-	--dark-white: #f5f5f5;
-	--shadow: 0px 0px 6px 2px var(--dark-white);
-	--space: 15px;
-	--screw: 4px;
-	background-color: var(--white) !important;
+    --from-static-width: 420px;
+    --main-font: 'Roboto', sans-serif;
+    --header-font: 'Anton', sans-serif;
+    --main-color: #2e6da4;
+    --light-color: #337ab7;
+    --white: #fff;
+    --black: #222;
+    --gray: #888;
+    --dark-white: #f5f5f5;
+    --shadow-color: #eee;
+    --shadow: 0px 0px 8px 2px var(--shadow-color);
+    --space: 15px;
+    --screw: 4px;
+    background-color: var(--white) !important;
+    color: var(--black) !important;
+    font-family: var(--main-font) !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: var(--main-font);
-	text-transform: uppercase;
-	margin-top: 0;
+    font-family: var(--header-font);
+    text-transform: uppercase;
+    margin-top: 0;
+}
+
+td {
+    color: var(--black);
 }
 
 .logo {
-	color: var(--white);
-}
-
-nav .container .links {
-	float: right;
+    color: var(--white);
 }
 
 .shadow {
-	box-shadow: var(--shadow);
+    box-shadow: var(--shadow);
 }
 
 form.controlled > * {
-	margin-bottom: var(--space);
+    margin-bottom: var(--space);
 }
 
 .spaced-bottom {
-	margin-bottom: var(--space);
+    margin-bottom: var(--space);
 }
 
 button,
 input[type='submit'],
 input[type='button'] {
-	background-color: var(--light-color) !important;
-	border-color: var(--main-color) !important;
-	color: var(--white) !important;
-	border-radius: var(--screw);
+    background-color: var(--light-color) !important;
+    border-color: var(--main-color) !important;
+    color: var(--white) !important;
+    border-radius: var(--screw);
+    text-transform: uppercase;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+    form > * {
+        margin-bottom: var(--space);
+    }
+
+.form-wrapper {
+    box-shadow: var(--shadow);
+    width: var(--from-static-width);
+    margin: auto;
 }

@@ -6,38 +6,102 @@
 
 <html>
 <head>
-    <link rel="stylesheet" href="~/css/style.css" />
+    <style>
+        body {
+            --from-static-width: 420px;
+            --main-font: 'Roboto', sans-serif;
+            --header-font: 'Anton', sans-serif;
+            --main-color: #2e6da4;
+            --light-color: #337ab7;
+            --white: #fff;
+            --black: #222;
+            --gray: #888;
+            --dark-white: #f5f5f5;
+            --shadow-color: #eee;
+            --shadow: 0px 0px 8px 2px var(--shadow-color);
+            --space: 15px;
+            --screw: 4px;
+            background-color: var(--white) !important;
+            color: var(--black) !important;
+            font-family: var(--main-font) !important;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--header-font);
+            text-transform: uppercase;
+            margin-top: 0;
+        }
+
+        td {
+            color: var(--black);
+        }
+
+        .logo {
+            color: var(--white);
+        }
+
+        .shadow {
+            box-shadow: var(--shadow);
+        }
+
+        form.controlled > * {
+            margin-bottom: var(--space);
+        }
+
+        .spaced-bottom {
+            margin-bottom: var(--space);
+        }
+
+        button,
+        input[type='submit'],
+        input[type='button'] {
+            background-color: var(--light-color) !important;
+            border-color: var(--main-color) !important;
+            color: var(--white) !important;
+            border-radius: var(--screw);
+            text-transform: uppercase;
+        }
+
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+            form > * {
+                margin-bottom: var(--space);
+            }
+
+        .form-wrapper {
+            box-shadow: var(--shadow);
+            width: var(--from-static-width);
+            margin: auto;
+        }
+    </style>
 </head>
 <body>
-    <h2>EditUniver</h2>
+    <div style="margin-top:40px;" class="container">
+        <div class="row">
+            <div class="panel-body form-wrapper">
+                <h2 class="spaced-bottom">Edit Univer</h2>
+                <form asp-action="EditUniver">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
 
-    <h4>Univers</h4>
-    <hr />
-    <div class="row">
-        <div class="col-md-4">
-            <form asp-action="EditUniver">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <input type="hidden" asp-for="Id" />
-                <div class="form-group">
-                    <label asp-for="NameOfUniver" class="control-label"></label>
+                    <h4> University Name</h4>
                     <input asp-for="NameOfUniver" class="form-control" />
                     <span asp-validation-for="NameOfUniver" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Town" class="control-label"></label>
+
+                    <h4> Town</h4>
                     <input asp-for="Town" class="form-control" />
                     <span asp-validation-for="Town" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Save" class="btn btn-default" />
-                </div>
-            </form>
-        </div>
-    </div>
 
-    <div>
-        <a asp-action="Index">Back to List</a>
-    </div>
+                    <input type="submit" value="Save" class="btn btn-default" />
+                    <a asp-action="Index">Back to List</a>
+                </form>
+            </div>
+            </div>
+        </div>
 </body>
 </html>
 

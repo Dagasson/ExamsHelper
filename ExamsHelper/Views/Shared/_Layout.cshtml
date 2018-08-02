@@ -7,7 +7,7 @@
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/css/style.css" />
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -15,58 +15,162 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
+    <link href="https://fonts.googleapis.com/css?family=Anton|Roboto" rel="stylesheet">
+    <style>
+
+
+        body {
+            --main-font: 'Roboto', sans-serif;
+            --header-font: 'Anton', sans-serif;
+            --main-color: #2e6da4;
+            --light-color: #337ab7;
+            --white: #fff;
+            --black: #222;
+            --gray: #888;
+            --dark-white: #f5f5f5;
+            --shadow: 0px 0px 6px 2px var(--dark-white);
+            --space: 15px;
+            --screw: 4px;
+            --link-color: #77acd9;
+            background-color: var(--white) !important;
+            color: var(--black) !important;
+        }
+
+h1, h2, h3, h4, h5, h6, .logo {
+	font-family: var(--header-font);
+	text-transform: uppercase;
+	margin-top: 0;
+}
+
+        .logo {
+            font-size: 1.6em;
+        }
+
+a{
+    color: var(--white);
+}
+
+td{
+    color: var(--black);
+
+}
+
+.shadow {
+	box-shadow: var(--shadow);
+}
+
+form.controlled > * {
+	margin-bottom: var(--space);
+}
+footer {
+    background-color: var(--black);
+    color: var(--white);
+    height: 40px;
+    display: flex !important;
+    justify-content: center;
+    align-items: flex-end;
+    box-shadow: var(--shadow);
+}
+.spaced-bottom {
+    margin-bottom: var(--space);
+}
+
+button,
+input[type='submit'],
+input[type='button'] {
+	background-color: var(--light-color) !important;
+	border-color: var(--main-color) !important;
+	color: var(--white) !important;
+	border-radius: var(--screw);
+}
+        .navbar-brand{
+            color: var(--white) !important;
+            transition: all .3s;
+        }
+
+            .navbar-brand:hover {
+                color: var(--link-color) !important;
+            }
+
+        .navbar-inverse {
+            max-height: 40px;
+            box-shadow: var(--shadow);
+        }
+
+        .profile .dropdown-toggle{
+            color: var(--white) !important;
+            max-height: 40px;
+            border: 0;
+        }
+
+        .dropdown-menu{
+            box-shadow: none;
+        }
+
+        .profile .dropdown-toggle:hover{
+            background-color: var(--black) !important;
+        }
+
+        .body-content{
+            min-height: calc(100vh - 110px);
+        }
+
+    </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-inverse">
         <div class="container">
 
 
             <div class="navbar-collapse collapse">
 
-                <h1><a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand logo">Exams Helper</a></h1>
-                <div class="links">
-                    <a asp-area="" asp-controller="Home" asp-action="About" class="navbar-brand">About</a>
-                    @if (User.Identity.IsAuthenticated)
-                </div>
-    {
-            <a asp-area="" asp-controller="Questions" asp-action="CreateQuestion" class="navbar-brand">Question</a>
-            <a asp-area="" asp-controller="Subjects" asp-action="CreateSubject" class="navbar-brand">Subject</a>
-            <a asp-area="" asp-controller="Univers" asp-action="CreateUniversity" class="navbar-brand">University</a>
-            <a asp-area="" asp-controller="Faculties" asp-action="CreateFaculty" class="navbar-brand">Faculty</a>
-            <a asp-area="" asp-controller="Admin" asp-action="Index" class="navbar-brand"> Admin Panel</a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand logo">Exams Helper</a>
 
-            <div class="col-sm-3 col-md-3">
-                <form class="navbar-form" navbar-right" role="search">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search" name="inputSearch">
-                        <div class="input-group-btn">
-                            <button asp-controller="Home" asp-action="Search" class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                        </div>
+
+                @if (User.Identity.IsAuthenticated)
+
+                {
+                    <a asp-area="" asp-controller="Questions" asp-action="CreateQuestion" class="navbar-brand">Question</a>
+                    <a asp-area="" asp-controller="Subjects" asp-action="CreateSubject" class="navbar-brand">Subject</a>
+                    <a asp-area="" asp-controller="Univers" asp-action="CreateUniversity" class="navbar-brand">University</a>
+                    <a asp-area="" asp-controller="Faculties" asp-action="CreateFaculty" class="navbar-brand">Faculty</a>
+                    <a asp-area="" asp-controller="Admin" asp-action="Index" class="navbar-brand"> Admin Panel</a>
+
+                    <div class="col-sm-3 col-md-3">
+                        <form class="navbar-form" navbar-right" role="search">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search" name="inputSearch">
+                                <div class="input-group-btn">
+                                    <button asp-controller="Home" asp-action="Search" class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                </form>
-            </div>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> @User.Identity.Name <span class="caret"></span> </a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a asp-controller="Users" asp-action="Users">Profile</a></li>
-                        <li><a asp-controller="Home" asp-action="SignOut">Sign Out</a></li>
+                    <ul class="nav navbar-nav navbar-right profile">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> @User.Identity.Name <span class="caret"></span> </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a asp-controller="Users" asp-action="Users">Profile</a></li>
+                                <li><a asp-controller="Home" asp-action="SignOut">Sign Out</a></li>
+                            </ul>
                     </ul>
-            </ul>
-}
-else
-{
-            <a asp-area="" asp-controller="Home" asp-action="SignIn" class="navbar-brand">Sign In</a>
-}
+                }
+                else
+                {
+                    <a asp-area="" asp-controller="Home" asp-action="SignIn" class="navbar-brand">Sign In</a>
+                }
 
             </div>
         </div>
     </nav>
     <div class="container body-content">
         @RenderBody()
-    </div>
 
+    </div>
+    <footer>
+        <p>&copy; 2018 - All rights reserved</p>
+    </footer>
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>

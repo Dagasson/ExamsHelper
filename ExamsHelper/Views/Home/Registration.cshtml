@@ -31,26 +31,126 @@
     <head>
         <meta charset="UTF-8">
         <title>ExamsHelper</title>
-        <link rel="stylesheet" href="~/css/style.css" />
+        <style>
+            body {
+                --main-font: 'Roboto', sans-serif;
+                --header-font: 'Anton', sans-serif;
+                --main-color: #2e6da4;
+                --light-color: #337ab7;
+                --white: #fff;
+                --black: #222;
+                --gray: #888;
+                --dark-white: #f5f5f5;
+                --shadow: 0px 0px 6px 2px var(--dark-white);
+                --space: 15px;
+                --screw: 4px;
+                --link-color: #77acd9;
+                background-color: var(--white) !important;
+                color: var(--black) !important;
+            }
+
+            h1, h2, h3, h4, h5, h6, .logo {
+                font-family: var(--header-font);
+                text-transform: uppercase;
+                margin-top: 0;
+            }
+
+            .logo {
+                font-size: 1.6em;
+            }
+
+            a {
+                color: var(--light-color);
+            }
+
+            td {
+                color: var(--black);
+            }
+
+            .shadow {
+                box-shadow: var(--shadow);
+            }
+
+            form.controlled > * {
+                margin-bottom: var(--space);
+            }
+
+            footer {
+                background-color: var(--black);
+                color: var(--white);
+                height: 40px;
+                display: flex !important;
+                justify-content: center;
+                align-items: flex-end;
+                box-shadow: var(--shadow);
+            }
+
+            .spaced-bottom {
+                margin-bottom: var(--space);
+            }
+
+            button,
+            input[type='submit'],
+            input[type='button'] {
+                background-color: var(--light-color) !important;
+                border-color: var(--main-color) !important;
+                color: var(--white) !important;
+                border-radius: var(--screw);
+            }
+
+            .navbar-brand {
+                color: var(--white) !important;
+                transition: all .3s;
+            }
+
+                .navbar-brand:hover {
+                    color: var(--link-color) !important;
+                }
+
+            .navbar-inverse {
+                max-height: 40px;
+                box-shadow: var(--shadow);
+            }
+
+            .profile .dropdown-toggle {
+                color: var(--white) !important;
+                max-height: 40px;
+                border: 0;
+            }
+
+            .dropdown-menu {
+                box-shadow: none;
+            }
+
+            .profile .dropdown-toggle:hover {
+                background-color: var(--black) !important;
+            }
+
+            .body-content {
+                min-height: calc(100vh - 110px);
+            }
+        </style>
     </head>
 
-    <body style="background-color:darkgray">
+    <body>
         <div style="margin-top:40px;" class="container">
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <h5 class="text-center">
-                                <h1>Sign Up </h1>
+                                <h2>Sign Up </h2>
                             </h5>
                             <form method="post" class="form form-signup" role="form">
                                 <div class="form-group">
+                                    <h4>Login</h4>
                                     <div class="input-group">
                                         <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                                         <input type="text" name="login" class="form-control" placeholder="Login" />
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <h4>Email</h4>
                                     <div class="input-group">
                                         <span class="input-group-addon">
                                             <span class="glyphicon glyphicon-envelope"></span>
@@ -59,24 +159,27 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <h4>Password</h4>
                                     <div class="input-group">
                                         <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
                                         <input type="password" class="form-control" name="password" placeholder="Password" />
                                     </div>
                                 </div>
+                                <h4>University</h4>
                                 <div>
-                                    <select class="form-control form-control-lg"  name="univer" asp-items="ViewBag.univers" id="univer"></select>
-                                    </div>
-                                <br />
+                                    <select class="form-control form-control-lg" name="univer" asp-items="ViewBag.univers" id="univer"></select>
+                                </div>
+
+                                <h4>Faculty</h4>
                                 <div>
-                                <select class="form-control form-control-lg" name="faculty" asp-items="ViewBag.faculties" id="facultyid"></select>
+                                    <select class="form-control form-control-lg" name="faculty" asp-items="ViewBag.faculties" id="facultyid"></select>
                                 </div>
                                 <div asp-validation-summary="ModelOnly"></div>
-                       <br />
-                        <div class="form-group">
-                            <input asp-action="SignUp" asp-controller="Home" type="submit" class="btn btn-lg btn-primary btn-block" value="Sign Up">
-                        </div>
-                        </form>
+             
+                                <div class="form-group">
+                                    <input asp-action="SignUp" asp-controller="Home" type="submit" class="btn btn-lg btn-primary btn-block" value="Sign Up">
+                                </div>
+                            </form>
                     </div>
                 </div>
             </div>

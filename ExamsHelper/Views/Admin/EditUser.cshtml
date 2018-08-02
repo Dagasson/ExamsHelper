@@ -30,67 +30,126 @@
 
 <html>
 <head>
-    <link rel="stylesheet" href="~/css/style.css" />
+    <style>
+        body {
+    --from-static-width: 420px;
+    --main-font: 'Roboto', sans-serif;
+    --header-font: 'Anton', sans-serif;
+    --main-color: #2e6da4;
+    --light-color: #337ab7;
+    --white: #fff;
+    --black: #222;
+    --gray: #888;
+    --dark-white: #f5f5f5;
+    --shadow-color: #eee;
+    --shadow: 0px 0px 8px 2px var(--shadow-color);
+    --space: 15px;
+    --screw: 4px;
+    background-color: var(--white) !important;
+    color: var(--black) !important;
+    font-family: var(--main-font) !important;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+    font-family: var(--header-font);
+    text-transform: uppercase;
+    margin-top: 0;
+    }
+
+    td {
+    color: var(--black);
+    }
+
+    .logo {
+    color: var(--white);
+    }
+
+    .shadow {
+    box-shadow: var(--shadow);
+    }
+
+    form.controlled > * {
+    margin-bottom: var(--space);
+    }
+
+    .spaced-bottom {
+    margin-bottom: var(--space);
+    }
+
+    button,
+    input[type='submit'],
+    input[type='button'] {
+    background-color: var(--light-color) !important;
+    border-color: var(--main-color) !important;
+    color: var(--white) !important;
+    border-radius: var(--screw);
+    text-transform: uppercase;
+    }
+
+
+    form {
+    display: flex;
+    flex-direction: column;
+    }
+
+    form > * {
+    margin-bottom: var(--space);
+    }
+
+    .form-wrapper {
+    box-shadow: var(--shadow);
+    width: var(--from-static-width);
+    margin: auto;
+    }
+    </style>
 </head>
 <body>
-    <h2>EditUser</h2>
+   
+    <div style="margin-top:40px;" class="container">
+        <div class="row">
+            <div class="panel-body form-wrapper">
+                <h2 class="spaced-bottom">Edit User</h2>
+                <form asp-action="EditUser">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
 
-    <h4>User</h4>
-    <hr />
-    <div class="row">
-        <div class="col-md-4">
-            <form asp-action="EditUser">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <input type="hidden" asp-for="Id" />
-                <div class="form-group">
-                    <label asp-for="Login" class="control-label"></label>
+                    <h4>Login</h4>
                     <input asp-for="Login" class="form-control" />
                     <span asp-validation-for="Login" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Email" class="control-label"></label>
+
+                    <h4>Email</h4>
                     <input asp-for="Email" class="form-control" />
                     <span asp-validation-for="Email" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Password" class="control-label"></label>
+
+                    <h4>Password</h4>
                     <input asp-for="Password" class="form-control" />
                     <span asp-validation-for="Password" class="text-danger"></span>
-                </div>
-                <div class="form-group">
+
                     <div class="checkbox">
                         <label>
                             <input asp-for="Moderator" /> @Html.DisplayNameFor(model => model.Moderator)
                         </label>
                     </div>
-                </div>
-                <div class="form-group">
+
                     <div class="checkbox">
                         <label>
                             <input asp-for="Admin" /> @Html.DisplayNameFor(model => model.Admin)
                         </label>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label asp-for="FacultiesId" class="control-label"></label>
+                    <h4>Faculty</h4>
                     <select asp-for="FacultiesId" class="form-control" asp-items="ViewBag.faculties" id="facultyid" name="faculty"></select>
                     <span asp-validation-for="FacultiesId" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="UniversId" class="control-label"></label>
+
+                    <h4>University</h4>
                     <select asp-for="UniversId" class="form-control" asp-items="ViewBag.univers" id="univer" name="univer"></select>
                     <span asp-validation-for="UniversId" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Save" class="btn btn-default" />
-                </div>
-            </form>
-        </div>
-    </div>
 
-    <div>
-        <a asp-action="Index">Back to List</a>
-    </div>
+                    <input type="submit" value="Save" class="btn btn-default" />
+                    <a asp-action="Index">Back to List</a>
+                </form>
+            </div>
+        </div>
+        </div>
 
 
 </body>

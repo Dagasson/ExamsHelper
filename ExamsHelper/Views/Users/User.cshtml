@@ -7,13 +7,74 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <title> Profile</title>
+    <style>
+
+
+        body {
+            --main-font: 'Roboto', sans-serif;
+            --header-font: 'Anton', sans-serif;
+            --main-color: #2e6da4;
+            --light-color: #337ab7;
+            --white: #fff;
+            --black: #222;
+            --gray: #888;
+            --dark-white: #f5f5f5;
+            --shadow: 0px 0px 6px 2px var(--dark-white);
+            --space: 15px;
+            --screw: 4px;
+            background-color: var(--white) !important;
+            color: var(--black) !important;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--header-font);
+            text-transform: uppercase;
+            margin-top: 0;
+        }
+
+        td {
+            color: var(--black);
+        }
+
+        .logo {
+            color: var(--white);
+        }
+
+        .shadow {
+            box-shadow: var(--shadow);
+        }
+
+        form.controlled > * {
+            margin-bottom: var(--space);
+        }
+
+        .spaced-bottom {
+            margin-bottom: var(--space);
+        }
+
+        button,
+        input[type='submit'],
+        input[type='button'] {
+            background-color: var(--light-color) !important;
+            border-color: var(--main-color) !important;
+            color: var(--white) !important;
+            border-radius: var(--screw);
+        }
+
+
+        form {
+            width: 40%;
+            margin: auto;
+            box-shadow: 0px 0px 8px 2px #ddd;
+        }
+    </style>
 </head>
 
-<body style=" background-color: darkgray">
-    <div style="display:inline-table; color:white;">
-        <h1 style="color:white">User Profile </h1>
+<body>
+
         <form method="post">
             <table class="table table-user-information">
+                <h2>Profile</h2>
                 <tbody>
                     <tr>
                         <td>Login</td>
@@ -38,23 +99,23 @@
                     <tr>
                         <td>Moderator</td>
                         @if (Model.Moderator)
-        {
+            {
                 <td>   Yes </td>
 }
 else
 {
-                <td>  No </td>
+            <td>  No </td>
 }
                     </tr>
                     <tr>
                         <td>Admin</td>
                         @if (Model.Admin)
-        {
+            {
                 <td>   Yes </td>
 }
 else
 {
-                <td>  No </td>
+            <td>  No </td>
 }
                     </tr>
                     <tr>
@@ -65,7 +126,6 @@ else
             </table>
             <input asp-controller="Users" asp-action="ChangePassword" type="submit" value="Change Password" class="btn btn-lg btn-success btn-block">
         </form>
-    </div>
 </body>
 
 </html>
