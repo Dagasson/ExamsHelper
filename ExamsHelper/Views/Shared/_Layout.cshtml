@@ -24,9 +24,11 @@
 
             <div class="navbar-collapse collapse">
 
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Exams Helper</a>
-                <a asp-area="" asp-controller="Home" asp-action="About" class="navbar-brand"> About</a>
-                @if (User.Identity.IsAuthenticated)
+                <h1><a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand logo">Exams Helper</a></h1>
+                <div class="links">
+                    <a asp-area="" asp-controller="Home" asp-action="About" class="navbar-brand">About</a>
+                    @if (User.Identity.IsAuthenticated)
+                </div>
     {
             <a asp-area="" asp-controller="Questions" asp-action="CreateQuestion" class="navbar-brand">Question</a>
             <a asp-area="" asp-controller="Subjects" asp-action="CreateSubject" class="navbar-brand">Subject</a>
